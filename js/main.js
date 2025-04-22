@@ -492,10 +492,14 @@ function updateParallax() {
                 header.style.padding = '0.5rem 0';
                 header.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
                 header.classList.add('scrolled');
+                // Ensure solid background
+                header.style.backgroundColor = 'var(--white)';
             } else {
                 header.style.padding = '1rem 0';
                 header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
                 header.classList.remove('scrolled');
+                // Reset background to its initial value
+                header.style.backgroundColor = 'var(--white)';
             }
             
             // Determine scroll direction

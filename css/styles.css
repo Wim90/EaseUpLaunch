@@ -147,7 +147,7 @@ section[id] {
 
 .header.scrolled {
     height: var(--header-height-scrolled);
-    background-color: rgba(255, 255, 255, 0.98);
+    background-color: var(--white); /* Solid white background - no transparency */
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
 }
 
