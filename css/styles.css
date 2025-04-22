@@ -383,22 +383,22 @@ section[id] {
 
 @media screen and (max-width: 576px) {
     .hero-section {
-        min-height: 950px; /* Keeping this the same */
-        padding-top: 80px; /* Reduced from 100px to 80px */
-        padding-bottom: 120px; /* Keeping this the same */
+        min-height: 950px;
+        padding-top: 50px; /* Further reduced from 60px to 50px */
+        padding-bottom: 120px;
         overflow: visible;
     }
     
     .hero-content {
-        padding-top: calc(var(--header-height) + 2rem); /* Reduced from 4rem to 2rem */
+        padding-top: calc(var(--header-height) + 0.5rem); /* Further reduced from 1rem to 0.5rem */
         position: relative;
         z-index: 10;
     }
     
     .hero-text {
         text-align: center;
-        padding-top: 80px; /* Reduced from 110px to 80px */
-        margin-top: 15px; /* Reduced from 30px to 15px */
+        padding-top: 40px; /* Further reduced from 50px to 40px */
+        margin-top: 5px; /* Further reduced from 10px to 5px */
     }
     
     .hero-text h1 {
@@ -420,15 +420,15 @@ section[id] {
     }
     
     .hero-image {
-        margin-top: 20px; /* Increased from 5px to 20px */
-        padding-bottom: 30px; /* Reduced from 70px to 30px */
-        margin-bottom: 20px; /* Reduced from 50px to 20px */
+        margin-top: 20px;
+        padding-bottom: 30px;
+        margin-bottom: 20px;
     }
     
     .hero-image img {
         max-width: 200px;
         margin-top: 0;
-        margin-bottom: 10px; /* Reduced from 30px to 10px */
+        margin-bottom: 10px;
     }
     
     .hero-buttons {
@@ -547,22 +547,22 @@ section[id] {
 
 @media screen and (max-width: 576px) {
     .hero-section {
-        min-height: 950px; /* Keeping this the same */
-        padding-top: 80px; /* Reduced from 100px to 80px */
-        padding-bottom: 120px; /* Keeping this the same */
+        min-height: 950px;
+        padding-top: 50px; /* Further reduced from 60px to 50px */
+        padding-bottom: 120px;
         overflow: visible;
     }
     
     .hero-content {
-        padding-top: calc(var(--header-height) + 2rem); /* Reduced from 4rem to 2rem */
+        padding-top: calc(var(--header-height) + 0.5rem); /* Further reduced from 1rem to 0.5rem */
         position: relative;
         z-index: 10;
     }
     
     .hero-text {
         text-align: center;
-        padding-top: 80px; /* Reduced from 110px to 80px */
-        margin-top: 15px; /* Reduced from 30px to 15px */
+        padding-top: 40px; /* Further reduced from 50px to 40px */
+        margin-top: 5px; /* Further reduced from 10px to 5px */
     }
     
     .hero-text h1 {
@@ -584,15 +584,15 @@ section[id] {
     }
     
     .hero-image {
-        margin-top: 20px; /* Increased from 5px to 20px */
-        padding-bottom: 30px; /* Reduced from 70px to 30px */
-        margin-bottom: 20px; /* Reduced from 50px to 20px */
+        margin-top: 20px;
+        padding-bottom: 30px;
+        margin-bottom: 20px;
     }
     
     .hero-image img {
         max-width: 200px;
         margin-top: 0;
-        margin-bottom: 10px; /* Reduced from 30px to 10px */
+        margin-bottom: 10px;
     }
     
     .hero-buttons {
@@ -1817,22 +1817,22 @@ a.btn-secondary,
 /* ===== Hero Section Mobile Improvements ===== */
 @media screen and (max-width: 576px) {
     .hero-section {
-        min-height: 950px; /* Keeping this the same */
-        padding-top: 80px; /* Reduced from 100px to 80px */
-        padding-bottom: 120px; /* Keeping this the same */
+        min-height: 950px;
+        padding-top: 50px; /* Further reduced from 60px to 50px */
+        padding-bottom: 120px;
         overflow: visible;
     }
     
     .hero-content {
-        padding-top: calc(var(--header-height) + 2rem); /* Reduced from 4rem to 2rem */
+        padding-top: calc(var(--header-height) + 0.5rem); /* Further reduced from 1rem to 0.5rem */
         position: relative;
         z-index: 10;
     }
     
     .hero-text {
         text-align: center;
-        padding-top: 80px; /* Reduced from 110px to 80px */
-        margin-top: 15px; /* Reduced from 30px to 15px */
+        padding-top: 40px; /* Further reduced from 50px to 40px */
+        margin-top: 5px; /* Further reduced from 10px to 5px */
     }
     
     .hero-text h1 {
@@ -1854,15 +1854,15 @@ a.btn-secondary,
     }
     
     .hero-image {
-        margin-top: 20px; /* Increased from 5px to 20px */
-        padding-bottom: 30px; /* Reduced from 70px to 30px */
-        margin-bottom: 20px; /* Reduced from 50px to 20px */
+        margin-top: 20px;
+        padding-bottom: 30px;
+        margin-bottom: 20px;
     }
     
     .hero-image img {
         max-width: 200px;
         margin-top: 0;
-        margin-bottom: 10px; /* Reduced from 30px to 10px */
+        margin-bottom: 10px;
     }
     
     .hero-buttons {
