@@ -1,0 +1,11 @@
+# robots.txt file for EaseUp website
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://easeup.app/sitemap.xml
+
+# Disallow direct access to any potentially sensitive directories
+Disallow: /js/
+Disallow: /css/
+Disallow: /public/images/ 
