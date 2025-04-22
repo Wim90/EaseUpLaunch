@@ -383,22 +383,22 @@ section[id] {
 
 @media screen and (max-width: 576px) {
     .hero-section {
-        min-height: 950px; /* Increased from 850px to 950px */
-        padding-top: 120px; /* Reduced from 180px to 120px */
-        padding-bottom: 120px; /* Increased from 80px to 120px */
+        min-height: 950px; /* Keeping this the same */
+        padding-top: 120px; /* Keeping this the same */
+        padding-bottom: 120px; /* Keeping this the same */
         overflow: visible;
     }
     
     .hero-content {
-        padding-top: calc(var(--header-height) + 6rem); /* Increased from 4rem to 6rem */
+        padding-top: calc(var(--header-height) + 4rem); /* Reduced from 6rem to 4rem (20px reduction) */
         position: relative;
         z-index: 10;
     }
     
     .hero-text {
         text-align: center;
-        padding-top: 130px; /* Drastically increased from 90px to 130px */
-        margin-top: 50px; /* Increased from 30px to 50px */
+        padding-top: 110px; /* Reduced from 130px to 110px (20px reduction) */
+        margin-top: 30px; /* Reduced from 50px to 30px (20px reduction) */
     }
     
     .hero-text h1 {
@@ -547,22 +547,22 @@ section[id] {
 
 @media screen and (max-width: 576px) {
     .hero-section {
-        min-height: 950px; /* Increased from 850px to 950px */
-        padding-top: 120px; /* Reduced from 180px to 120px */
-        padding-bottom: 120px; /* Increased from 80px to 120px */
+        min-height: 950px; /* Keeping this the same */
+        padding-top: 120px; /* Keeping this the same */
+        padding-bottom: 120px; /* Keeping this the same */
         overflow: visible;
     }
     
     .hero-content {
-        padding-top: calc(var(--header-height) + 6rem); /* Increased from 4rem to 6rem */
+        padding-top: calc(var(--header-height) + 4rem); /* Reduced from 6rem to 4rem (20px reduction) */
         position: relative;
         z-index: 10;
     }
     
     .hero-text {
         text-align: center;
-        padding-top: 130px; /* Drastically increased from 90px to 130px */
-        margin-top: 50px; /* Increased from 30px to 50px */
+        padding-top: 110px; /* Reduced from 130px to 110px (20px reduction) */
+        margin-top: 30px; /* Reduced from 50px to 30px (20px reduction) */
     }
     
     .hero-text h1 {
@@ -1817,22 +1817,22 @@ a.btn-secondary,
 /* ===== Hero Section Mobile Improvements ===== */
 @media screen and (max-width: 576px) {
     .hero-section {
-        min-height: 950px; /* Increased from 850px to 950px */
-        padding-top: 120px; /* Reduced from 180px to 120px */
-        padding-bottom: 120px; /* Increased from 80px to 120px */
+        min-height: 950px; /* Keeping this the same */
+        padding-top: 120px; /* Keeping this the same */
+        padding-bottom: 120px; /* Keeping this the same */
         overflow: visible;
     }
     
     .hero-content {
-        padding-top: calc(var(--header-height) + 6rem); /* Increased from 4rem to 6rem */
+        padding-top: calc(var(--header-height) + 4rem); /* Reduced from 6rem to 4rem (20px reduction) */
         position: relative;
         z-index: 10;
     }
     
     .hero-text {
         text-align: center;
-        padding-top: 130px; /* Drastically increased from 90px to 130px */
-        margin-top: 50px; /* Increased from 30px to 50px */
+        padding-top: 110px; /* Reduced from 130px to 110px (20px reduction) */
+        margin-top: 30px; /* Reduced from 50px to 30px (20px reduction) */
     }
     
     .hero-text h1 {
