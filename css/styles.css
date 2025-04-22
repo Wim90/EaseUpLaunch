@@ -339,10 +339,10 @@ section[id] {
 /* ===== Hero Section ===== */
 .hero-section {
     position: relative;
-    min-height: 850px; /* Increased from 700px to 850px to prevent overlap */
+    min-height: 800px; /* Reduced from 850px */
     display: flex;
     align-items: center;
-    padding-top: 80px;
+    padding-top: 60px; /* Reduced from 80px */
     padding-bottom: 20px;
     overflow: visible; /* Changed from hidden to visible */
 }
@@ -455,7 +455,7 @@ section[id] {
     max-width: 1100px;
     margin: 0 auto;
     color: var(--white);
-    padding-top: 20px; /* Changed from 0 to 20px for desktop */
+    padding-top: 10px; /* Reduced from 20px */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -495,7 +495,7 @@ section[id] {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 30px; /* Added padding for desktop to prevent content from being hidden */
+    padding-top: 15px; /* Reduced from 30px */
 }
 
 .hero-image img {
