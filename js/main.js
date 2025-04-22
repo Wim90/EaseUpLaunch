@@ -41,8 +41,10 @@ document.addEventListener('DOMContentLoaded', function() {
     initFaqAccordion();
     
     // Force the header to be visible on page load
-    header.style.transform = 'translateY(0)';
-    header.classList.remove('hidden');
+    if (header) {
+        header.style.transform = 'translateY(0)';
+        header.classList.remove('hidden');
+    }
     
     // Add resize listener to handle orientation changes
     window.addEventListener('resize', function() {
@@ -51,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
         checkMobile();
         
         // If we switched to mobile, ensure header is visible
-        if (!wasMobile && isMobile) {
+        if (!wasMobile && isMobile && header) {
             header.style.transform = 'translateY(0)';
             header.classList.remove('hidden');
         }
@@ -78,10 +80,8 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!targetElement) return;
             
             // Close mobile menu if open
-            if (navMenu.classList.contains('active')) {
-                navMenu.classList.remove('active');
-                hamburger.classList.remove('active');
-                document.body.classList.remove('menu-open');
+            if (navMenu && navMenu.classList.contains('active')) {
+                closeMobileMenu();
             }
             
             // Calculate position accounting for header height
@@ -104,7 +104,7 @@ function checkMobile() {
     isMobile = window.innerWidth < 768;
     
     // If on mobile, ensure the header is always visible
-    if (isMobile) {
+    if (isMobile && header) {
         // Reset header to visible state
         header.style.transform = 'translateY(0)';
         header.classList.remove('hidden');
@@ -339,12 +339,22 @@ function initScrollAnimations() {
 }
 
 /**
- * Mobile menu toggle functionality
- * Includes touch-friendly behaviors
+ * Utility function to close the mobile menu
+ */
+function closeMobileMenu() {
+    if (navMenu && hamburger) {
+        navMenu.classList.remove('active');
+        hamburger.classList.remove('active');
+        document.body.classList.remove('menu-open');
+    }
+}
+
+/**
+ * Initialize mobile menu functionality with improved touch handling
  */
 function initMobileMenu() {
     // Ensure hamburger element exists before attaching event listeners
-    if (!hamburger) return;
+    if (!hamburger || !navMenu) return;
     
     // Add active class to elements for styling
     hamburger.addEventListener('click', function(e) {
@@ -357,58 +367,52 @@ function initMobileMenu() {
         
         // Add/remove body class to create overlay effect
         document.body.classList.toggle('menu-open');
-        
-        // Animation handled by CSS transitions now - no need to manually set styles
     });
     
     // Close menu when clicking outside
     document.addEventListener('click', function(event) {
+        if (!navMenu || !hamburger) return;
+        
         const isClickInsideMenu = navMenu.contains(event.target);
         const isClickOnHamburger = hamburger.contains(event.target);
         
         if (!isClickInsideMenu && !isClickOnHamburger && navMenu.classList.contains('active')) {
-            navMenu.classList.remove('active');
-            hamburger.classList.remove('active');
-            document.body.classList.remove('menu-open');
+            closeMobileMenu();
         }
     });
     
     // Add touch event handling for mobile swipe to close menu
     let touchStartX = 0;
     
-    navMenu.addEventListener('touchstart', function(e) {
-        touchStartX = e.changedTouches[0].screenX;
-    }, listenerOpts);
-    
-    navMenu.addEventListener('touchend', function(e) {
-        const touchEndX = e.changedTouches[0].screenX;
-        const diff = touchStartX - touchEndX;
+    if (navMenu) {
+        navMenu.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        }, listenerOpts);
         
-        // If swiped left (diff > 0), close the menu
-        if (diff > 50) {
-            navMenu.classList.remove('active');
-            hamburger.classList.remove('active');
-            document.body.classList.remove('menu-open');
-        }
-    }, listenerOpts);
+        navMenu.addEventListener('touchend', function(e) {
+            const touchEndX = e.changedTouches[0].screenX;
+            const diff = touchStartX - touchEndX;
+            
+            // If swiped left (diff > 0), close the menu
+            if (diff > 50) {
+                closeMobileMenu();
+            }
+        }, listenerOpts);
+    }
     
     // Close menu when clicking on nav links
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
             if (isMobile) {
-                navMenu.classList.remove('active');
-                hamburger.classList.remove('active');
-                document.body.classList.remove('menu-open');
+                closeMobileMenu();
             }
         });
     });
     
     // Handle escape key to close menu
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && navMenu.classList.contains('active')) {
-            navMenu.classList.remove('active');
-            hamburger.classList.remove('active');
-            document.body.classList.remove('menu-open');
+        if (e.key === 'Escape' && navMenu && navMenu.classList.contains('active')) {
+            closeMobileMenu();
         }
     });
 }
