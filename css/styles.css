@@ -130,7 +130,7 @@ section[id] {
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: 100; /* Lowered from 1000 to ensure it doesn't overlap with hero content */
     background-color: var(--white);
     box-shadow: var(--shadow);
     transition: transform 0.3s ease, background-color 0.3s ease;
@@ -385,25 +385,38 @@ section[id] {
     .hero-section {
         min-height: 600px;
         /* Fixed padding to ensure visibility */
-        padding-top: 120px; /* Increased to ensure visibility on mobile */
+        padding-top: 150px; /* Further increased from 120px to 150px to ensure heading visibility */
         padding-bottom: 40px; /* Added padding at the bottom */
     }
     
     .hero-content {
-        padding-top: calc(var(--header-height) + 3rem); /* Increased padding for mobile */
+        padding-top: calc(var(--header-height) + 4rem); /* Increased from 3rem to 4rem */
+        position: relative;
+        z-index: 10; /* Ensure content is above any potential overlays */
     }
     
     .hero-text {
         text-align: center;
-        padding-top: 70px; /* Significantly increased padding from 40px to 70px to prevent text from being hidden */
+        padding-top: 90px; /* Significantly increased from 70px to 90px */
+        margin-top: 30px; /* Added additional margin */
     }
     
     .hero-text h1 {
         font-size: 3.2rem;
+        margin-bottom: 1.5rem; /* Reduced margin to keep elements closer */
+        position: relative;
+        z-index: 15; /* Ensure heading is above everything */
+        color: var(--white); /* Explicitly set color to ensure visibility */
+        display: block; /* Ensure proper display */
+        opacity: 1; /* Ensure it's not being hidden by opacity */
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* Add text shadow for better visibility */
     }
     
     .hero-text p {
         font-size: 1.6rem;
+        margin-top: 10px; /* Added margin top for spacing from header */
+        position: relative;
+        z-index: 15; /* Match h1 z-index */
     }
     
     .hero-image {
@@ -418,6 +431,8 @@ section[id] {
     
     .hero-buttons {
         margin-bottom: 5px; /* Further reduced for smallest screens */
+        position: relative;
+        z-index: 15; /* Match h1 z-index */
     }
 }
 
@@ -532,24 +547,38 @@ section[id] {
     .hero-section {
         min-height: 600px;
         /* Fixed padding to ensure visibility */
-        padding-top: 120px; /* Increased to ensure visibility on mobile */
+        padding-top: 150px; /* Further increased from 120px to 150px to ensure heading visibility */
+        padding-bottom: 40px; /* Added padding at the bottom */
     }
     
     .hero-content {
-        padding-top: calc(var(--header-height) + 3rem); /* Increased padding for mobile */
+        padding-top: calc(var(--header-height) + 4rem); /* Increased from 3rem to 4rem */
+        position: relative;
+        z-index: 10; /* Ensure content is above any potential overlays */
     }
     
     .hero-text {
         text-align: center;
-        padding-top: 70px; /* Significantly increased padding from 40px to 70px to prevent text from being hidden */
+        padding-top: 90px; /* Significantly increased from 70px to 90px */
+        margin-top: 30px; /* Added additional margin */
     }
     
     .hero-text h1 {
         font-size: 3.2rem;
+        margin-bottom: 1.5rem; /* Reduced margin to keep elements closer */
+        position: relative;
+        z-index: 15; /* Ensure heading is above everything */
+        color: var(--white); /* Explicitly set color to ensure visibility */
+        display: block; /* Ensure proper display */
+        opacity: 1; /* Ensure it's not being hidden by opacity */
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* Add text shadow for better visibility */
     }
     
     .hero-text p {
         font-size: 1.6rem;
+        margin-top: 10px; /* Added margin top for spacing from header */
+        position: relative;
+        z-index: 15; /* Match h1 z-index */
     }
     
     .hero-image {
@@ -564,6 +593,8 @@ section[id] {
     
     .hero-buttons {
         margin-bottom: 5px; /* Further reduced for smallest screens */
+        position: relative;
+        z-index: 15; /* Match h1 z-index */
     }
 }
 
@@ -1784,24 +1815,38 @@ a.btn-secondary,
     .hero-section {
         min-height: 600px;
         /* Fixed padding to ensure visibility */
-        padding-top: 120px; /* Increased to ensure visibility on mobile */
+        padding-top: 150px; /* Further increased from 120px to 150px to ensure heading visibility */
+        padding-bottom: 40px; /* Added padding at the bottom */
     }
     
     .hero-content {
-        padding-top: calc(var(--header-height) + 3rem); /* Increased padding for mobile */
+        padding-top: calc(var(--header-height) + 4rem); /* Increased from 3rem to 4rem */
+        position: relative;
+        z-index: 10; /* Ensure content is above any potential overlays */
     }
     
     .hero-text {
         text-align: center;
-        padding-top: 70px; /* Significantly increased padding from 40px to 70px to prevent text from being hidden */
+        padding-top: 90px; /* Significantly increased from 70px to 90px */
+        margin-top: 30px; /* Added additional margin */
     }
     
     .hero-text h1 {
         font-size: 3.2rem;
+        margin-bottom: 1.5rem; /* Reduced margin to keep elements closer */
+        position: relative;
+        z-index: 15; /* Ensure heading is above everything */
+        color: var(--white); /* Explicitly set color to ensure visibility */
+        display: block; /* Ensure proper display */
+        opacity: 1; /* Ensure it's not being hidden by opacity */
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* Add text shadow for better visibility */
     }
     
     .hero-text p {
         font-size: 1.6rem;
+        margin-top: 10px; /* Added margin top for spacing from header */
+        position: relative;
+        z-index: 15; /* Match h1 z-index */
     }
     
     .hero-image {
@@ -1816,6 +1861,8 @@ a.btn-secondary,
     
     .hero-buttons {
         margin-bottom: 5px; /* Further reduced for smallest screens */
+        position: relative;
+        z-index: 15; /* Match h1 z-index */
     }
 }
 
