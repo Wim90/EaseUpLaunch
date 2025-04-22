@@ -11,6 +11,7 @@ let lastScrollTop = 0;
 let ticking = false;
 let isMobile = window.innerWidth < 768;
 let supportsPassive = false;
+let headerHeight = header ? header.offsetHeight : 0; // Cache header height
 
 // Test for passive event support for better performance on mobile
 try {
@@ -29,7 +30,7 @@ const listenerOpts = supportsPassive ? { passive: true } : false;
 
 // Main JavaScript file for EaseUp website
 document.addEventListener('DOMContentLoaded', function() {
-    // Check for mobile device on load
+    // Check for mobile device on load - do this first!
     checkMobile();
     
     // Initialize all components
@@ -39,10 +40,61 @@ document.addEventListener('DOMContentLoaded', function() {
     initMobileMenu();
     initFaqAccordion();
     
+    // Force the header to be visible on page load
+    header.style.transform = 'translateY(0)';
+    header.classList.remove('hidden');
+    
     // Add resize listener to handle orientation changes
-    window.addEventListener('resize', debounce(function() {
+    window.addEventListener('resize', function() {
+        // Check if we're now on mobile after resize
+        const wasMobile = isMobile;
         checkMobile();
-    }, 250), listenerOpts);
+        
+        // If we switched to mobile, ensure header is visible
+        if (!wasMobile && isMobile) {
+            header.style.transform = 'translateY(0)';
+            header.classList.remove('hidden');
+        }
+        
+        // Update parallax on resize
+        updateParallax();
+        
+        // Recalculate header height on resize
+        headerHeight = header ? header.offsetHeight : 0;
+    }, listenerOpts);
+    
+    // Call updateParallax once to initialize the state
+    updateParallax();
+    
+    // Ensure smooth scrolling accounts for fixed header
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (!targetElement) return;
+            
+            // Close mobile menu if open
+            if (navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            }
+            
+            // Calculate position accounting for header height
+            const headerOffset = isMobile ? 70 : 60; // Use values that match our CSS
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        });
+    });
 });
 
 /**
@@ -51,8 +103,13 @@ document.addEventListener('DOMContentLoaded', function() {
 function checkMobile() {
     isMobile = window.innerWidth < 768;
     
-    // Disable parallax on mobile for better performance
+    // If on mobile, ensure the header is always visible
     if (isMobile) {
+        // Reset header to visible state
+        header.style.transform = 'translateY(0)';
+        header.classList.remove('hidden');
+        
+        // Disable parallax on mobile for better performance
         parallaxBgs.forEach(bg => {
             bg.style.transform = 'none';
         });
@@ -92,8 +149,8 @@ function initNavigation() {
             header.classList.remove('scrolled');
         }
         
-        // Hide header when scrolling down, show when scrolling up
-        if (scrollTop > lastScrollTop && scrollTop > 200) {
+        // Hide header when scrolling down, show when scrolling up - BUT NOT ON MOBILE
+        if (!isMobile && scrollTop > lastScrollTop && scrollTop > 200) {
             header.classList.add('hidden');
         } else {
             header.classList.remove('hidden');
@@ -426,34 +483,43 @@ function updateParallax() {
         window.requestAnimationFrame(() => {
             const scrollTop = window.scrollY;
             
-            // Update parallax backgrounds
-            parallaxBgs.forEach(bg => {
-                // Performance optimization: Apply transform with translateZ for hardware acceleration
-                bg.style.transform = `translateY(${scrollTop * 0.4}px) translateZ(0)`;
-            });
+            // Only apply parallax effect on non-mobile devices
+            if (!isMobile) {
+                // Update parallax backgrounds
+                parallaxBgs.forEach(bg => {
+                    // Performance optimization: Apply transform with translateZ for hardware acceleration
+                    bg.style.transform = `translateY(${scrollTop * 0.4}px) translateZ(0)`;
+                });
+            }
             
             // Header shrink effect on scroll
             if (scrollTop > 100) {
                 header.style.padding = '0.5rem 0';
                 header.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+                header.classList.add('scrolled');
             } else {
                 header.style.padding = '1rem 0';
                 header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+                header.classList.remove('scrolled');
             }
             
             // Determine scroll direction
             const scrollDirection = scrollTop > lastScrollTop ? 'down' : 'up';
             lastScrollTop = scrollTop;
             
-            // Auto-hide header on scroll down, show on scroll up
-            if (scrollTop > 200) {
+            // Auto-hide header on scroll down, show on scroll up - BUT ONLY ON DESKTOP
+            if (scrollTop > 200 && !isMobile) {
                 if (scrollDirection === 'down') {
                     header.style.transform = 'translateY(-100%)';
+                    header.classList.add('hidden');
                 } else {
                     header.style.transform = 'translateY(0)';
+                    header.classList.remove('hidden');
                 }
             } else {
+                // Always show header on mobile or when at top of page
                 header.style.transform = 'translateY(0)';
+                header.classList.remove('hidden');
             }
             
             ticking = false;
