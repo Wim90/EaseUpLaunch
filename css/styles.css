@@ -358,19 +358,62 @@ section[id] {
 
 @media screen and (max-width: 768px) {
     .hero-section {
-        padding-top: 100px; /* Increased to ensure content is visible below fixed header */
+        padding-top: 120px; /* Increased from 100px for better visibility on medium mobile devices */
         min-height: 550px;
+    }
+    
+    .hero-buttons {
+        margin-bottom: 10px; /* Reduced space after buttons */
+    }
+    
+    .hero-image {
+        margin-top: 10px; /* Reduced space before image */
+    }
+    
+    .hero-image img {
+        margin-top: 0; /* Remove additional top margin on image */
+    }
+    
+    .hero-text {
+        padding-top: 30px; /* Added padding for medium-sized mobile devices */
     }
 }
 
 @media screen and (max-width: 576px) {
     .hero-section {
-        padding-top: 100px; /* Increased to ensure visibility on smallest screens */
-        min-height: 500px;
+        min-height: 600px;
+        /* Fixed padding to ensure visibility */
+        padding-top: 120px; /* Increased to ensure visibility on mobile */
     }
     
     .hero-content {
-        padding-top: 40px; /* Increased from 30px to add more space for text */
+        padding-top: calc(var(--header-height) + 3rem); /* Increased padding for mobile */
+    }
+    
+    .hero-text {
+        text-align: center;
+        padding-top: 40px; /* Increased padding from 20px to 40px to prevent text from being hidden */
+    }
+    
+    .hero-text h1 {
+        font-size: 3.2rem;
+    }
+    
+    .hero-text p {
+        font-size: 1.6rem;
+    }
+    
+    .hero-image {
+        margin-top: 5px; /* Further reduced for smallest screens */
+    }
+    
+    .hero-image img {
+        max-width: 200px;
+        margin-top: 0;
+    }
+    
+    .hero-buttons {
+        margin-bottom: 5px; /* Further reduced for smallest screens */
     }
 }
 
@@ -485,15 +528,16 @@ section[id] {
     .hero-section {
         min-height: 600px;
         /* Fixed padding to ensure visibility */
-        padding-top: 80px; /* Increased to ensure visibility on mobile */
+        padding-top: 120px; /* Increased to ensure visibility on mobile */
     }
     
     .hero-content {
-        margin-top: 30px; /* Added margin to push content down further */
+        padding-top: calc(var(--header-height) + 3rem); /* Increased padding for mobile */
     }
     
     .hero-text {
         text-align: center;
+        padding-top: 40px; /* Increased padding from 20px to 40px to prevent text from being hidden */
     }
     
     .hero-text h1 {
@@ -1737,12 +1781,12 @@ a.btn-secondary,
     }
     
     .hero-content {
-        padding-top: calc(var(--header-height) + 2rem); /* Increased padding for mobile */
+        padding-top: calc(var(--header-height) + 3rem); /* Increased padding for mobile */
     }
     
     .hero-text {
         text-align: center;
-        padding-top: 20px; /* Added padding to prevent text from being hidden */
+        padding-top: 40px; /* Increased padding from 20px to 40px to prevent text from being hidden */
     }
     
     .hero-text h1 {
