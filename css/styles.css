@@ -342,7 +342,7 @@ section[id] {
     min-height: 650px;
     display: flex;
     align-items: center;
-    padding-top: 10px;
+    padding-top: 80px; /* Increased from 10px to avoid text being hidden */
     padding-bottom: 20px;
     overflow: hidden;
 }
@@ -358,19 +358,19 @@ section[id] {
 
 @media screen and (max-width: 768px) {
     .hero-section {
-        padding-top: 80px; /* Increased to ensure content is visible below fixed header */
+        padding-top: 100px; /* Increased to ensure content is visible below fixed header */
         min-height: 550px;
     }
 }
 
 @media screen and (max-width: 576px) {
     .hero-section {
-        padding-top: 80px; /* Increased to ensure visibility on smallest screens */
+        padding-top: 100px; /* Increased to ensure visibility on smallest screens */
         min-height: 500px;
     }
     
     .hero-content {
-        padding-top: 30px; /* Increased from 10px */
+        padding-top: 40px; /* Increased from 30px to add more space for text */
     }
 }
 
@@ -391,7 +391,7 @@ section[id] {
     max-width: 1100px;
     margin: 0 auto;
     color: var(--white);
-    padding-top: 0; /* Keep at 0 */
+    padding-top: 20px; /* Changed from 0 to 20px for desktop */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -431,6 +431,7 @@ section[id] {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-top: 30px; /* Added padding for desktop to prevent content from being hidden */
 }
 
 .hero-image img {
@@ -444,7 +445,7 @@ section[id] {
     .hero-content {
         flex-direction: column;
         text-align: center;
-        padding-top: 0;
+        padding-top: 20px; /* Adjusted padding for tablet */
     }
     
     .hero-text {
@@ -456,9 +457,13 @@ section[id] {
         margin-top: 1rem;
     }
     
+    .hero-image {
+        margin-top: 10px; /* Reduced space before image */
+        padding-top: 15px; /* Added padding on tablet */
+    }
+    
     .hero-image img {
         max-width: 200px;
-        margin-top: 1rem;
     }
 }
 
@@ -1732,11 +1737,12 @@ a.btn-secondary,
     }
     
     .hero-content {
-        padding-top: calc(var(--header-height) + 1rem);
+        padding-top: calc(var(--header-height) + 2rem); /* Increased padding for mobile */
     }
     
     .hero-text {
         text-align: center;
+        padding-top: 20px; /* Added padding to prevent text from being hidden */
     }
     
     .hero-text h1 {
