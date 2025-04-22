@@ -41,10 +41,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initFaqAccordion();
     
     // Force the header to be visible on page load
-    if (header) {
-        header.style.transform = 'translateY(0)';
-        header.classList.remove('hidden');
-    }
+    header.style.transform = 'translateY(0)';
+    header.classList.remove('hidden');
     
     // Add resize listener to handle orientation changes
     window.addEventListener('resize', function() {
@@ -53,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
         checkMobile();
         
         // If we switched to mobile, ensure header is visible
-        if (!wasMobile && isMobile && header) {
+        if (!wasMobile && isMobile) {
             header.style.transform = 'translateY(0)';
             header.classList.remove('hidden');
         }
@@ -80,8 +78,10 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!targetElement) return;
             
             // Close mobile menu if open
-            if (navMenu && navMenu.classList.contains('active')) {
-                closeMobileMenu();
+            if (navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+                document.body.classList.remove('menu-open');
             }
             
             // Calculate position accounting for header height
@@ -104,7 +104,7 @@ function checkMobile() {
     isMobile = window.innerWidth < 768;
     
     // If on mobile, ensure the header is always visible
-    if (isMobile && header) {
+    if (isMobile) {
         // Reset header to visible state
         header.style.transform = 'translateY(0)';
         header.classList.remove('hidden');
@@ -339,71 +339,78 @@ function initScrollAnimations() {
 }
 
 /**
- * Simple mobile menu dropdown implementation
- * This function handles the mobile menu toggle with minimal complexity
+ * Mobile menu toggle functionality
+ * Includes touch-friendly behaviors
  */
 function initMobileMenu() {
-    // Get required elements
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-    const navLinks = document.querySelectorAll('.nav-menu a');
+    // Ensure hamburger element exists before attaching event listeners
+    if (!hamburger) return;
     
-    if (!hamburger || !navMenu) return;
-    
-    // Toggle menu when hamburger is clicked
+    // Add active class to elements for styling
     hamburger.addEventListener('click', function(e) {
         e.preventDefault();
         e.stopPropagation();
         
-        // Toggle active classes
+        // Toggle active class on both hamburger and menu
         this.classList.toggle('active');
         navMenu.classList.toggle('active');
+        
+        // Add/remove body class to create overlay effect
         document.body.classList.toggle('menu-open');
+        
+        // Animation handled by CSS transitions now - no need to manually set styles
     });
     
     // Close menu when clicking outside
-    document.addEventListener('click', function(e) {
-        // Return if menu is not open or elements don't exist
-        if (!navMenu?.classList.contains('active') || !hamburger) return;
+    document.addEventListener('click', function(event) {
+        const isClickInsideMenu = navMenu.contains(event.target);
+        const isClickOnHamburger = hamburger.contains(event.target);
         
-        // Check if click is outside menu and hamburger
-        if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
-            closeMobileMenu();
+        if (!isClickInsideMenu && !isClickOnHamburger && navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+            hamburger.classList.remove('active');
+            document.body.classList.remove('menu-open');
         }
     });
     
-    // Close menu when a link is clicked
+    // Add touch event handling for mobile swipe to close menu
+    let touchStartX = 0;
+    
+    navMenu.addEventListener('touchstart', function(e) {
+        touchStartX = e.changedTouches[0].screenX;
+    }, listenerOpts);
+    
+    navMenu.addEventListener('touchend', function(e) {
+        const touchEndX = e.changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+        
+        // If swiped left (diff > 0), close the menu
+        if (diff > 50) {
+            navMenu.classList.remove('active');
+            hamburger.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        }
+    }, listenerOpts);
+    
+    // Close menu when clicking on nav links
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
-            closeMobileMenu();
+            if (isMobile) {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            }
         });
     });
     
-    // Close menu when escape key is pressed
+    // Handle escape key to close menu
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && navMenu?.classList.contains('active')) {
-            closeMobileMenu();
+        if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+            hamburger.classList.remove('active');
+            document.body.classList.remove('menu-open');
         }
     });
-    
-    // Close menu when window is resized to desktop size
-    window.addEventListener('resize', function() {
-        if (window.innerWidth > 768 && navMenu?.classList.contains('active')) {
-            closeMobileMenu();
-        }
-    });
-}
-
-/**
- * Helper function to close mobile menu
- */
-function closeMobileMenu() {
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-    
-    if (hamburger) hamburger.classList.remove('active');
-    if (navMenu) navMenu.classList.remove('active');
-    document.body.classList.remove('menu-open');
 }
 
 /**
@@ -492,14 +499,10 @@ function updateParallax() {
                 header.style.padding = '0.5rem 0';
                 header.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
                 header.classList.add('scrolled');
-                // Ensure solid background
-                header.style.backgroundColor = 'var(--white)';
             } else {
                 header.style.padding = '1rem 0';
                 header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
                 header.classList.remove('scrolled');
-                // Reset background to its initial value
-                header.style.backgroundColor = 'var(--white)';
             }
             
             // Determine scroll direction
