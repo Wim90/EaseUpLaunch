@@ -359,6 +359,7 @@ section[id] {
 @media screen and (max-width: 768px) {
     .hero-section {
         padding-top: 120px; /* Increased from 100px for better visibility on medium mobile devices */
+        padding-bottom: 30px; /* Added bottom padding */
         min-height: 550px;
     }
     
@@ -368,6 +369,7 @@ section[id] {
     
     .hero-image {
         margin-top: 10px; /* Reduced space before image */
+        padding-bottom: 20px; /* Added padding below the hero image */
     }
     
     .hero-image img {
@@ -375,7 +377,7 @@ section[id] {
     }
     
     .hero-text {
-        padding-top: 30px; /* Added padding for medium-sized mobile devices */
+        padding-top: 60px; /* Increased padding for medium-sized mobile devices from 30px to 60px */
     }
 }
 
@@ -384,6 +386,7 @@ section[id] {
         min-height: 600px;
         /* Fixed padding to ensure visibility */
         padding-top: 120px; /* Increased to ensure visibility on mobile */
+        padding-bottom: 40px; /* Added padding at the bottom */
     }
     
     .hero-content {
@@ -392,7 +395,7 @@ section[id] {
     
     .hero-text {
         text-align: center;
-        padding-top: 40px; /* Increased padding from 20px to 40px to prevent text from being hidden */
+        padding-top: 70px; /* Significantly increased padding from 40px to 70px to prevent text from being hidden */
     }
     
     .hero-text h1 {
@@ -405,6 +408,7 @@ section[id] {
     
     .hero-image {
         margin-top: 5px; /* Further reduced for smallest screens */
+        padding-bottom: 30px; /* Added padding below the hero image */
     }
     
     .hero-image img {
@@ -537,7 +541,7 @@ section[id] {
     
     .hero-text {
         text-align: center;
-        padding-top: 40px; /* Increased padding from 20px to 40px to prevent text from being hidden */
+        padding-top: 70px; /* Significantly increased padding from 40px to 70px to prevent text from being hidden */
     }
     
     .hero-text h1 {
@@ -550,6 +554,7 @@ section[id] {
     
     .hero-image {
         margin-top: 5px; /* Further reduced for smallest screens */
+        padding-bottom: 30px; /* Added padding below the hero image */
     }
     
     .hero-image img {
@@ -1777,7 +1782,9 @@ a.btn-secondary,
 /* ===== Hero Section Mobile Improvements ===== */
 @media screen and (max-width: 576px) {
     .hero-section {
-        min-height: 600px; /* Ensure enough space on small screens */
+        min-height: 600px;
+        /* Fixed padding to ensure visibility */
+        padding-top: 120px; /* Increased to ensure visibility on mobile */
     }
     
     .hero-content {
@@ -1786,11 +1793,11 @@ a.btn-secondary,
     
     .hero-text {
         text-align: center;
-        padding-top: 40px; /* Increased padding from 20px to 40px to prevent text from being hidden */
+        padding-top: 70px; /* Significantly increased padding from 40px to 70px to prevent text from being hidden */
     }
     
     .hero-text h1 {
-        font-size: 3.2rem; /* Smaller font size on very small screens */
+        font-size: 3.2rem;
     }
     
     .hero-text p {
@@ -1798,11 +1805,17 @@ a.btn-secondary,
     }
     
     .hero-image {
-        margin-top: 2rem;
+        margin-top: 5px; /* Further reduced for smallest screens */
+        padding-bottom: 30px; /* Added padding below the hero image */
     }
     
     .hero-image img {
         max-width: 200px;
+        margin-top: 0;
+    }
+    
+    .hero-buttons {
+        margin-bottom: 5px; /* Further reduced for smallest screens */
     }
 }
 
