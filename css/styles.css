@@ -339,7 +339,7 @@ section[id] {
 /* ===== Hero Section ===== */
 .hero-section {
     position: relative;
-    min-height: 650px;
+    min-height: 850px; /* Increased from 700px to 850px to prevent overlap */
     display: flex;
     align-items: center;
     padding-top: 80px;
@@ -383,10 +383,10 @@ section[id] {
 
 @media screen and (max-width: 576px) {
     .hero-section {
-        min-height: 700px; /* Increased from 600px to 700px */
-        padding-top: 180px; /* Drastically increased from 150px */
-        padding-bottom: 80px; /* Doubled from 40px to 80px */
-        overflow: visible; /* Changed from hidden to visible to prevent content from being cut off */
+        min-height: 850px; /* Increased from 700px to 850px */
+        padding-top: 120px; /* Reduced from 180px to 120px */
+        padding-bottom: 120px; /* Increased from 80px to 120px */
+        overflow: visible;
     }
     
     .hero-content {
@@ -547,10 +547,10 @@ section[id] {
 
 @media screen and (max-width: 576px) {
     .hero-section {
-        min-height: 700px; /* Increased from 600px to 700px */
-        padding-top: 180px; /* Drastically increased from 150px */
-        padding-bottom: 80px; /* Doubled from 40px to 80px */
-        overflow: visible; /* Changed from hidden to visible to prevent content from being cut off */
+        min-height: 850px; /* Increased from 700px to 850px */
+        padding-top: 120px; /* Reduced from 180px to 120px */
+        padding-bottom: 120px; /* Increased from 80px to 120px */
+        overflow: visible;
     }
     
     .hero-content {
@@ -1817,10 +1817,10 @@ a.btn-secondary,
 /* ===== Hero Section Mobile Improvements ===== */
 @media screen and (max-width: 576px) {
     .hero-section {
-        min-height: 700px; /* Increased from 600px to 700px */
-        padding-top: 180px; /* Drastically increased from 150px */
-        padding-bottom: 80px; /* Doubled from 40px to 80px */
-        overflow: visible; /* Changed from hidden to visible to prevent content from being cut off */
+        min-height: 850px; /* Increased from 700px to 850px */
+        padding-top: 120px; /* Reduced from 180px to 120px */
+        padding-bottom: 120px; /* Increased from 80px to 120px */
+        overflow: visible;
     }
     
     .hero-content {
