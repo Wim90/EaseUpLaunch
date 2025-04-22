@@ -184,6 +184,27 @@ section[id] {
     color: var(--primary-dark);
 }
 
+/* Logo size adjustments for mobile devices */
+@media screen and (max-width: 768px) {
+    .logo img {
+        height: 55px; /* Reduced from 70px */
+    }
+    
+    .logo span {
+        font-size: 2.4rem; /* Reduced from 2.8rem */
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .logo img {
+        height: 45px; /* Further reduced for smallest screens */
+    }
+    
+    .logo span {
+        font-size: 2.2rem; /* Further reduced for smallest screens */
+    }
+}
+
 /* ===== Navigation ===== */
 .nav-menu {
     display: flex;
