@@ -104,14 +104,13 @@ section[id] {
 
 /* Special top anchor positioning */
 .top-anchor {
-    display: block;
     position: absolute;
     top: 0;
-    left: 0;
     height: 0;
     width: 0;
+    margin: 0;
+    padding: 0;
     visibility: hidden;
-    z-index: -1;
 }
 
 /* Section anchor positioning */
@@ -134,7 +133,9 @@ section[id] {
     z-index: 1000;
     background-color: var(--white);
     box-shadow: var(--shadow);
-    transition: background-color 0.3s ease;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    /* Ensure header is always visible on mobile */
+    transform: translateY(0) !important;
 }
 
 .header-content {
@@ -290,13 +291,40 @@ section[id] {
 
 /* ===== Hero Section ===== */
 .hero-section {
-    height: 100vh;
+    position: relative;
     min-height: 650px;
     display: flex;
     align-items: center;
-    position: relative;
-    padding: 0;
+    padding-top: 10px;
+    padding-bottom: 20px;
     overflow: hidden;
+}
+
+/* Fix for Safari mobile 100vh issue */
+@supports (-webkit-touch-callout: none) {
+    .hero-section {
+        height: -webkit-fill-available;
+        /* Force minimum height for very small devices */
+        min-height: 600px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .hero-section {
+        padding-top: 10px; /* Reduced from 40px to 10px */
+        min-height: 550px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .hero-section {
+        padding-top: 10px; /* Reduced from 30px to 10px */
+        min-height: 500px;
+    }
+    
+    .hero-content {
+        padding-top: 10px; /* Kept at 10px */
+    }
 }
 
 .hero-section .parallax-bg {
@@ -316,11 +344,13 @@ section[id] {
     max-width: 1100px;
     margin: 0 auto;
     color: var(--white);
-    padding-top: calc(var(--header-height) - 60px); /* Drastically reduced padding for desktop */
+    padding-top: 0; /* Keep at 0 */
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 3rem;
+    /* Ensure content is always visible */
+    z-index: 5;
 }
 
 .hero-text {
@@ -362,12 +392,12 @@ section[id] {
     border-radius: 15px;
 }
 
-/* Media queries for hero section responsiveness */
+/* ===== Media Queries for Hero Section ===== */
 @media screen and (max-width: 991px) {
     .hero-content {
         flex-direction: column;
         text-align: center;
-        padding-top: calc(var(--header-height) - 30px); /* Adjusted for tablets */
+        padding-top: 0;
     }
     
     .hero-text {
@@ -388,10 +418,8 @@ section[id] {
 @media screen and (max-width: 576px) {
     .hero-section {
         min-height: 600px;
-    }
-    
-    .hero-content {
-        padding-top: calc(var(--header-height) + 40px); /* Significantly increased padding for mobile */
+        /* Fixed padding to ensure visibility */
+        padding-top: 10px; /* Reduced from 60px to 10px */
     }
     
     .hero-text {
@@ -1295,7 +1323,7 @@ footer {
         align-items: center;
         transition: right var(--transition-speed) ease;
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-        z-index: 100;
+        z-index: 1001; /* Higher than header */
     }
     
     .nav-menu.active {
@@ -1326,10 +1354,10 @@ footer {
         width: 100%;
         height: 100%;
         background-color: rgba(0, 0, 0, 0.5);
-        z-index: 90;
+        z-index: 990;
     }
     
-    /* Make hamburger icon more noticeable and touchable */
+    /* Make hamburger icon more prominent */
     .hamburger {
         padding: 1rem;
         display: flex;
@@ -1338,6 +1366,7 @@ footer {
         height: 44px;
         width: 44px;
         cursor: pointer;
+        z-index: 1002; /* Higher than nav-menu */
     }
     
     .hero-content h1 {
@@ -1558,7 +1587,7 @@ a.btn-secondary,
         align-items: center;
         transition: right var(--transition-speed) ease;
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-        z-index: 100;
+        z-index: 1001; /* Higher than header */
     }
     
     .nav-menu.active {
@@ -1589,10 +1618,10 @@ a.btn-secondary,
         width: 100%;
         height: 100%;
         background-color: rgba(0, 0, 0, 0.5);
-        z-index: 90;
+        z-index: 990;
     }
     
-    /* Make hamburger icon more noticeable and touchable */
+    /* Make hamburger icon more prominent */
     .hamburger {
         padding: 1rem;
         display: flex;
@@ -1601,6 +1630,7 @@ a.btn-secondary,
         height: 44px;
         width: 44px;
         cursor: pointer;
+        z-index: 1002; /* Higher than nav-menu */
     }
 }
 
