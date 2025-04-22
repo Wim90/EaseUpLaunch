@@ -339,82 +339,71 @@ function initScrollAnimations() {
 }
 
 /**
- * Utility function to close the mobile menu
- */
-function closeMobileMenu() {
-    if (navMenu && hamburger) {
-        navMenu.classList.remove('active');
-        hamburger.classList.remove('active');
-        document.body.classList.remove('menu-open');
-    }
-}
-
-/**
- * Initialize mobile menu functionality with improved touch handling
+ * Simple mobile menu dropdown implementation
+ * This function handles the mobile menu toggle with minimal complexity
  */
 function initMobileMenu() {
-    // Ensure hamburger element exists before attaching event listeners
+    // Get required elements
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    
     if (!hamburger || !navMenu) return;
     
-    // Add active class to elements for styling
+    // Toggle menu when hamburger is clicked
     hamburger.addEventListener('click', function(e) {
         e.preventDefault();
         e.stopPropagation();
         
-        // Toggle active class on both hamburger and menu
+        // Toggle active classes
         this.classList.toggle('active');
         navMenu.classList.toggle('active');
-        
-        // Add/remove body class to create overlay effect
         document.body.classList.toggle('menu-open');
     });
     
     // Close menu when clicking outside
-    document.addEventListener('click', function(event) {
-        if (!navMenu || !hamburger) return;
+    document.addEventListener('click', function(e) {
+        // Return if menu is not open or elements don't exist
+        if (!navMenu?.classList.contains('active') || !hamburger) return;
         
-        const isClickInsideMenu = navMenu.contains(event.target);
-        const isClickOnHamburger = hamburger.contains(event.target);
-        
-        if (!isClickInsideMenu && !isClickOnHamburger && navMenu.classList.contains('active')) {
+        // Check if click is outside menu and hamburger
+        if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
             closeMobileMenu();
         }
     });
     
-    // Add touch event handling for mobile swipe to close menu
-    let touchStartX = 0;
-    
-    if (navMenu) {
-        navMenu.addEventListener('touchstart', function(e) {
-            touchStartX = e.changedTouches[0].screenX;
-        }, listenerOpts);
-        
-        navMenu.addEventListener('touchend', function(e) {
-            const touchEndX = e.changedTouches[0].screenX;
-            const diff = touchStartX - touchEndX;
-            
-            // If swiped left (diff > 0), close the menu
-            if (diff > 50) {
-                closeMobileMenu();
-            }
-        }, listenerOpts);
-    }
-    
-    // Close menu when clicking on nav links
+    // Close menu when a link is clicked
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
-            if (isMobile) {
-                closeMobileMenu();
-            }
+            closeMobileMenu();
         });
     });
     
-    // Handle escape key to close menu
+    // Close menu when escape key is pressed
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && navMenu && navMenu.classList.contains('active')) {
+        if (e.key === 'Escape' && navMenu?.classList.contains('active')) {
             closeMobileMenu();
         }
     });
+    
+    // Close menu when window is resized to desktop size
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768 && navMenu?.classList.contains('active')) {
+            closeMobileMenu();
+        }
+    });
+}
+
+/**
+ * Helper function to close mobile menu
+ */
+function closeMobileMenu() {
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (hamburger) hamburger.classList.remove('active');
+    if (navMenu) navMenu.classList.remove('active');
+    document.body.classList.remove('menu-open');
 }
 
 /**
