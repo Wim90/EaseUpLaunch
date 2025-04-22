@@ -343,26 +343,22 @@ function initScrollAnimations() {
  * Includes touch-friendly behaviors
  */
 function initMobileMenu() {
-    hamburger.addEventListener('click', function() {
-        // Toggle active class
+    // Ensure hamburger element exists before attaching event listeners
+    if (!hamburger) return;
+    
+    // Add active class to elements for styling
+    hamburger.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        // Toggle active class on both hamburger and menu
         this.classList.toggle('active');
         navMenu.classList.toggle('active');
         
-        // Prevent body scroll when menu is open
+        // Add/remove body class to create overlay effect
         document.body.classList.toggle('menu-open');
         
-        // Toggle hamburger animation
-        const bars = hamburger.querySelectorAll('.bar');
-        if (hamburger.classList.contains('active')) {
-            bars[0].style.transform = 'rotate(-45deg) translate(-5px, 6px)';
-            bars[1].style.opacity = '0';
-            bars[2].style.transform = 'rotate(45deg) translate(-5px, -6px)';
-        } else {
-            bars.forEach(bar => {
-                bar.style.transform = 'none';
-                bar.style.opacity = '1';
-            });
-        }
+        // Animation handled by CSS transitions now - no need to manually set styles
     });
     
     // Close menu when clicking outside
@@ -374,13 +370,6 @@ function initMobileMenu() {
             navMenu.classList.remove('active');
             hamburger.classList.remove('active');
             document.body.classList.remove('menu-open');
-            
-            // Reset hamburger icon
-            const bars = hamburger.querySelectorAll('.bar');
-            bars.forEach(bar => {
-                bar.style.transform = 'none';
-                bar.style.opacity = '1';
-            });
         }
     });
     
@@ -400,15 +389,28 @@ function initMobileMenu() {
             navMenu.classList.remove('active');
             hamburger.classList.remove('active');
             document.body.classList.remove('menu-open');
-            
-            // Reset hamburger icon
-            const bars = hamburger.querySelectorAll('.bar');
-            bars.forEach(bar => {
-                bar.style.transform = 'none';
-                bar.style.opacity = '1';
-            });
         }
     }, listenerOpts);
+    
+    // Close menu when clicking on nav links
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            if (isMobile) {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            }
+        });
+    });
+    
+    // Handle escape key to close menu
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+            hamburger.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        }
+    });
 }
 
 /**
