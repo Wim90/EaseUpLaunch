@@ -342,9 +342,9 @@ section[id] {
     min-height: 650px;
     display: flex;
     align-items: center;
-    padding-top: 80px; /* Increased from 10px to avoid text being hidden */
+    padding-top: 80px;
     padding-bottom: 20px;
-    overflow: hidden;
+    overflow: visible; /* Changed from hidden to visible */
 }
 
 /* Fix for Safari mobile 100vh issue */
@@ -383,56 +383,58 @@ section[id] {
 
 @media screen and (max-width: 576px) {
     .hero-section {
-        min-height: 600px;
-        /* Fixed padding to ensure visibility */
-        padding-top: 150px; /* Further increased from 120px to 150px to ensure heading visibility */
-        padding-bottom: 40px; /* Added padding at the bottom */
+        min-height: 700px; /* Increased from 600px to 700px */
+        padding-top: 180px; /* Drastically increased from 150px */
+        padding-bottom: 80px; /* Doubled from 40px to 80px */
+        overflow: visible; /* Changed from hidden to visible to prevent content from being cut off */
     }
     
     .hero-content {
-        padding-top: calc(var(--header-height) + 4rem); /* Increased from 3rem to 4rem */
+        padding-top: calc(var(--header-height) + 6rem); /* Increased from 4rem to 6rem */
         position: relative;
-        z-index: 10; /* Ensure content is above any potential overlays */
+        z-index: 10;
     }
     
     .hero-text {
         text-align: center;
-        padding-top: 90px; /* Significantly increased from 70px to 90px */
-        margin-top: 30px; /* Added additional margin */
+        padding-top: 130px; /* Drastically increased from 90px to 130px */
+        margin-top: 50px; /* Increased from 30px to 50px */
     }
     
     .hero-text h1 {
         font-size: 3.2rem;
-        margin-bottom: 1.5rem; /* Reduced margin to keep elements closer */
+        margin-bottom: 1.5rem;
         position: relative;
-        z-index: 15; /* Ensure heading is above everything */
-        color: var(--white); /* Explicitly set color to ensure visibility */
-        display: block; /* Ensure proper display */
-        opacity: 1; /* Ensure it's not being hidden by opacity */
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* Add text shadow for better visibility */
+        z-index: 15;
+        color: var(--white);
+        display: block;
+        opacity: 1;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
     }
     
     .hero-text p {
         font-size: 1.6rem;
-        margin-top: 10px; /* Added margin top for spacing from header */
+        margin-top: 10px;
         position: relative;
-        z-index: 15; /* Match h1 z-index */
+        z-index: 15;
     }
     
     .hero-image {
-        margin-top: 5px; /* Further reduced for smallest screens */
-        padding-bottom: 30px; /* Added padding below the hero image */
+        margin-top: 20px; /* Increased from 5px to 20px */
+        padding-bottom: 70px; /* Increased from 30px to 70px */
+        margin-bottom: 50px; /* Added additional bottom margin */
     }
     
     .hero-image img {
         max-width: 200px;
         margin-top: 0;
+        margin-bottom: 30px; /* Added bottom margin to the image */
     }
     
     .hero-buttons {
-        margin-bottom: 5px; /* Further reduced for smallest screens */
+        margin-bottom: 5px;
         position: relative;
-        z-index: 15; /* Match h1 z-index */
+        z-index: 15;
     }
 }
 
@@ -545,56 +547,58 @@ section[id] {
 
 @media screen and (max-width: 576px) {
     .hero-section {
-        min-height: 600px;
-        /* Fixed padding to ensure visibility */
-        padding-top: 150px; /* Further increased from 120px to 150px to ensure heading visibility */
-        padding-bottom: 40px; /* Added padding at the bottom */
+        min-height: 700px; /* Increased from 600px to 700px */
+        padding-top: 180px; /* Drastically increased from 150px */
+        padding-bottom: 80px; /* Doubled from 40px to 80px */
+        overflow: visible; /* Changed from hidden to visible to prevent content from being cut off */
     }
     
     .hero-content {
-        padding-top: calc(var(--header-height) + 4rem); /* Increased from 3rem to 4rem */
+        padding-top: calc(var(--header-height) + 6rem); /* Increased from 4rem to 6rem */
         position: relative;
-        z-index: 10; /* Ensure content is above any potential overlays */
+        z-index: 10;
     }
     
     .hero-text {
         text-align: center;
-        padding-top: 90px; /* Significantly increased from 70px to 90px */
-        margin-top: 30px; /* Added additional margin */
+        padding-top: 130px; /* Drastically increased from 90px to 130px */
+        margin-top: 50px; /* Increased from 30px to 50px */
     }
     
     .hero-text h1 {
         font-size: 3.2rem;
-        margin-bottom: 1.5rem; /* Reduced margin to keep elements closer */
+        margin-bottom: 1.5rem;
         position: relative;
-        z-index: 15; /* Ensure heading is above everything */
-        color: var(--white); /* Explicitly set color to ensure visibility */
-        display: block; /* Ensure proper display */
-        opacity: 1; /* Ensure it's not being hidden by opacity */
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* Add text shadow for better visibility */
+        z-index: 15;
+        color: var(--white);
+        display: block;
+        opacity: 1;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
     }
     
     .hero-text p {
         font-size: 1.6rem;
-        margin-top: 10px; /* Added margin top for spacing from header */
+        margin-top: 10px;
         position: relative;
-        z-index: 15; /* Match h1 z-index */
+        z-index: 15;
     }
     
     .hero-image {
-        margin-top: 5px; /* Further reduced for smallest screens */
-        padding-bottom: 30px; /* Added padding below the hero image */
+        margin-top: 20px; /* Increased from 5px to 20px */
+        padding-bottom: 70px; /* Increased from 30px to 70px */
+        margin-bottom: 50px; /* Added additional bottom margin */
     }
     
     .hero-image img {
         max-width: 200px;
         margin-top: 0;
+        margin-bottom: 30px; /* Added bottom margin to the image */
     }
     
     .hero-buttons {
-        margin-bottom: 5px; /* Further reduced for smallest screens */
+        margin-bottom: 5px;
         position: relative;
-        z-index: 15; /* Match h1 z-index */
+        z-index: 15;
     }
 }
 
@@ -1813,56 +1817,58 @@ a.btn-secondary,
 /* ===== Hero Section Mobile Improvements ===== */
 @media screen and (max-width: 576px) {
     .hero-section {
-        min-height: 600px;
-        /* Fixed padding to ensure visibility */
-        padding-top: 150px; /* Further increased from 120px to 150px to ensure heading visibility */
-        padding-bottom: 40px; /* Added padding at the bottom */
+        min-height: 700px; /* Increased from 600px to 700px */
+        padding-top: 180px; /* Drastically increased from 150px */
+        padding-bottom: 80px; /* Doubled from 40px to 80px */
+        overflow: visible; /* Changed from hidden to visible to prevent content from being cut off */
     }
     
     .hero-content {
-        padding-top: calc(var(--header-height) + 4rem); /* Increased from 3rem to 4rem */
+        padding-top: calc(var(--header-height) + 6rem); /* Increased from 4rem to 6rem */
         position: relative;
-        z-index: 10; /* Ensure content is above any potential overlays */
+        z-index: 10;
     }
     
     .hero-text {
         text-align: center;
-        padding-top: 90px; /* Significantly increased from 70px to 90px */
-        margin-top: 30px; /* Added additional margin */
+        padding-top: 130px; /* Drastically increased from 90px to 130px */
+        margin-top: 50px; /* Increased from 30px to 50px */
     }
     
     .hero-text h1 {
         font-size: 3.2rem;
-        margin-bottom: 1.5rem; /* Reduced margin to keep elements closer */
+        margin-bottom: 1.5rem;
         position: relative;
-        z-index: 15; /* Ensure heading is above everything */
-        color: var(--white); /* Explicitly set color to ensure visibility */
-        display: block; /* Ensure proper display */
-        opacity: 1; /* Ensure it's not being hidden by opacity */
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* Add text shadow for better visibility */
+        z-index: 15;
+        color: var(--white);
+        display: block;
+        opacity: 1;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
     }
     
     .hero-text p {
         font-size: 1.6rem;
-        margin-top: 10px; /* Added margin top for spacing from header */
+        margin-top: 10px;
         position: relative;
-        z-index: 15; /* Match h1 z-index */
+        z-index: 15;
     }
     
     .hero-image {
-        margin-top: 5px; /* Further reduced for smallest screens */
-        padding-bottom: 30px; /* Added padding below the hero image */
+        margin-top: 20px; /* Increased from 5px to 20px */
+        padding-bottom: 70px; /* Increased from 30px to 70px */
+        margin-bottom: 50px; /* Added additional bottom margin */
     }
     
     .hero-image img {
         max-width: 200px;
         margin-top: 0;
+        margin-bottom: 30px; /* Added bottom margin to the image */
     }
     
     .hero-buttons {
-        margin-bottom: 5px; /* Further reduced for smallest screens */
+        margin-bottom: 5px;
         position: relative;
-        z-index: 15; /* Match h1 z-index */
+        z-index: 15;
     }
 }
 
