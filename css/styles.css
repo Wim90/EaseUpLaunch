@@ -436,6 +436,20 @@ section[id] {
     }
 }
 
+@media screen and (max-width: 768px) {
+    .hero-buttons {
+        margin-bottom: 10px; /* Reduced space after buttons */
+    }
+    
+    .hero-image {
+        margin-top: 10px; /* Reduced space before image */
+    }
+    
+    .hero-image img {
+        margin-top: 0; /* Remove additional top margin on image */
+    }
+}
+
 @media screen and (max-width: 576px) {
     .hero-section {
         min-height: 600px;
@@ -460,11 +474,16 @@ section[id] {
     }
     
     .hero-image {
-        margin-top: 2rem;
+        margin-top: 5px; /* Further reduced for smallest screens */
     }
     
     .hero-image img {
         max-width: 200px;
+        margin-top: 0;
+    }
+    
+    .hero-buttons {
+        margin-bottom: 5px; /* Further reduced for smallest screens */
     }
 }
 
