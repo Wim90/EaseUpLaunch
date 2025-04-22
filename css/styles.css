@@ -384,7 +384,7 @@ section[id] {
 @media screen and (max-width: 576px) {
     .hero-section {
         min-height: 950px; /* Keeping this the same */
-        padding-top: 100px; /* Reduced from 120px to 100px */
+        padding-top: 80px; /* Reduced from 100px to 80px */
         padding-bottom: 120px; /* Keeping this the same */
         overflow: visible;
     }
@@ -548,7 +548,7 @@ section[id] {
 @media screen and (max-width: 576px) {
     .hero-section {
         min-height: 950px; /* Keeping this the same */
-        padding-top: 100px; /* Reduced from 120px to 100px */
+        padding-top: 80px; /* Reduced from 100px to 80px */
         padding-bottom: 120px; /* Keeping this the same */
         overflow: visible;
     }
@@ -1818,7 +1818,7 @@ a.btn-secondary,
 @media screen and (max-width: 576px) {
     .hero-section {
         min-height: 950px; /* Keeping this the same */
-        padding-top: 100px; /* Reduced from 120px to 100px */
+        padding-top: 80px; /* Reduced from 100px to 80px */
         padding-bottom: 120px; /* Keeping this the same */
         overflow: visible;
     }
