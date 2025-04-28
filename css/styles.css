@@ -366,7 +366,7 @@ section[id] {
 
 @media screen and (max-width: 768px) {
     .hero-section {
-        padding-top: 120px; /* Increased from 100px for better visibility on medium mobile devices */
+        padding-top: 60px;
         padding-bottom: 30px; /* Added bottom padding */
         min-height: 550px;
     }
@@ -392,7 +392,7 @@ section[id] {
 @media screen and (max-width: 576px) {
     .hero-section {
         min-height: 950px;
-        padding-top: 50px; /* Further reduced from 60px to 50px */
+        padding-top: 10px;
         padding-bottom: 120px;
         overflow: visible;
     }
@@ -556,7 +556,7 @@ section[id] {
 @media screen and (max-width: 576px) {
     .hero-section {
         min-height: 950px;
-        padding-top: 50px; /* Further reduced from 60px to 50px */
+        padding-top: 10px;
         padding-bottom: 120px;
         overflow: visible;
     }
@@ -1840,7 +1840,7 @@ a.btn-secondary,
 @media screen and (max-width: 576px) {
     .hero-section {
         min-height: 950px;
-        padding-top: 50px; /* Further reduced from 60px to 50px */
+        padding-top: 10px;
         padding-bottom: 120px;
         overflow: visible;
     }
@@ -2256,5 +2256,12 @@ html, body {
     height: 80px;
     display: flex;
     align-items: center;
+  }
+}
+
+/* On desktop, set top padding for hero section to 0px for flush alignment with header */
+@media screen and (min-width: 769px) {
+  .hero-section {
+    padding-top: 0px;
   }
 } 

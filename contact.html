@@ -39,16 +39,11 @@
             padding: 120px 0 80px;
             background-color: var(--white);
         }
-        
-        /* Override the fixed header for contact page */
-        .header {
-            position: static;
-            box-shadow: var(--shadow);
-        }
-        
-        /* Adjust contact section padding since header is not fixed */
-        .contact-section {
-            padding: 60px 0 80px;
+        /* Add spacing above the title on desktop to prevent it from being hidden by the fixed header */
+        @media screen and (min-width: 769px) {
+            .contact-section {
+                padding-top: 100px;
+            }
         }
         
         .contact-container {
