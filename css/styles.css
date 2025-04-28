@@ -452,7 +452,7 @@ section[id] {
     left: 0;
     width: 100%;
     height: 120%;
-    background: linear-gradient(rgba(162, 176, 130, 0.85), rgba(135, 144, 105, 0.9)), url('../images/hero-bg.jpg');
+    background: linear-gradient(rgba(162, 176, 130, 0.85), rgba(135, 144, 105, 0.9));
     background-size: cover;
     background-position: center;
     z-index: -1;

@@ -590,16 +590,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Add CSS for active navigation link
-const navStyle = document.createElement('style');
-navStyle.textContent = `
-    .nav-menu a.active {
-        color: var(--primary-color);
-        font-weight: 700;
-    }
-`;
-document.head.appendChild(navStyle);
-
 // ===== Main JavaScript =====
 
 document.addEventListener('DOMContentLoaded', () => {
