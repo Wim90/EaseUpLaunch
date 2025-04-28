@@ -295,6 +295,15 @@ section[id] {
     width: 25px;
 }
 
+/* === DEBUG: Force hamburger bars to be visible === */
+.hamburger .bar {
+    background: black !important;
+    display: block !important;
+    width: 25px !important;
+    height: 3px !important;
+    margin: 5px auto !important;
+}
+
 /* ===== Buttons ===== */
 .btn-primary, 
 .btn-secondary {
@@ -1466,10 +1475,13 @@ footer {
     }
     
     .hamburger {
-        display: flex;
+        display: flex !important; /* Force flex display on mobile, override any previous rules */
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        z-index: 9999 !important; /* Debug: bring to front */
+        border: 2px solid red !important; /* Debug: visible border */
+        background: yellow !important; /* Debug: visible background */
     }
     
     .nav-menu {
@@ -1743,10 +1755,13 @@ a.btn-secondary,
 /* ===== Mobile Navigation Improvements ===== */
 @media screen and (max-width: 768px) {
     .hamburger {
-        display: flex;
+        display: flex !important; /* Force flex display on mobile, override any previous rules */
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        z-index: 9999 !important; /* Debug: bring to front */
+        border: 2px solid red !important; /* Debug: visible border */
+        background: yellow !important; /* Debug: visible background */
     }
     
     .nav-menu {
