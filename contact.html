@@ -280,6 +280,14 @@
             document.body.classList.toggle('menu-open');
         });
         
+        // Close menu when a nav link is clicked (for mobile)
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelector('.nav-menu').classList.remove('active');
+                document.body.classList.remove('menu-open');
+            });
+        });
+        
         // Header scroll effect
         window.addEventListener('scroll', function() {
             const header = document.getElementById('header');

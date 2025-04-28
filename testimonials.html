@@ -71,30 +71,6 @@
         }
     }
     </script>
-    <style>
-        /* Override the fixed header for testimonials page */
-        .header {
-            position: static;
-            box-shadow: var(--shadow);
-        }
-        
-        /* Adjust testimonials section padding since header is not fixed */
-        .testimonials-section {
-            padding: 60px 0 80px;
-            background-color: var(--white);
-        }
-        
-        /* Add some extra spacing for the testimonials on their own page */
-        .testimonials-wrapper {
-            margin: 50px auto;
-            max-width: 1200px;
-        }
-        
-        /* Add more testimonials to fill the page */
-        .additional-testimonials {
-            margin-top: 50px;
-        }
-    </style>
 </head>
 <body>
     <!-- Header -->
@@ -102,22 +78,25 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <a href="index.html">
+                    <a href="#top">
                         <img src="public/images/logo/Logo_main.png" alt="EaseUp Logo" />
                     </a>
                 </div>
                 
                 <nav>
+                    <!-- Hamburger menu button for mobile -->
                     <div class="hamburger">
                         <div class="bar"></div>
                         <div class="bar"></div>
                         <div class="bar"></div>
                     </div>
+                    
                     <ul class="nav-menu">
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#top">Home</a></li>
                         <li><a href="index.html#about">About</a></li>
                         <li><a href="index.html#features">Features</a></li>
-                        <li><a href="testimonials.html" class="active">Testimonials</a></li>
+                        <li><a href="index.html#benefits">Benefits</a></li>
+                        <li><a href="testimonials.html">Testimonials</a></li>
                         <li><a href="index.html#faq">FAQ</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
@@ -297,22 +276,5 @@
     </footer>
 
     <script src="js/main.js"></script>
-    <script>
-        // Mobile menu toggle
-        document.querySelector('.hamburger').addEventListener('click', function() {
-            document.querySelector('.nav-menu').classList.toggle('active');
-            document.body.classList.toggle('menu-open');
-        });
-        
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-    </script>
 </body>
 </html> 

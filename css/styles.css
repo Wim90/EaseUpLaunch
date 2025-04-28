@@ -129,25 +129,28 @@ section[id] {
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 100; /* Lowered from 1000 to ensure it doesn't overlap with hero content */
+    z-index: 100;
     background-color: var(--white);
     box-shadow: var(--shadow);
     transition: transform 0.3s ease, background-color 0.3s ease;
-    /* Ensure header is always visible, especially on mobile */
     transform: translateY(0) !important;
+    height: 80px !important; /* Consistent header height across all devices */
+    padding: 0 !important; /* Remove variable padding */
 }
 
 .header-content {
+    height: 100%;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 0;
+    justify-content: space-between; /* Restore horizontal spacing between logo and nav */
+    align-items: center; /* Vertically center all content */
 }
 
 .header.scrolled {
-    height: var(--header-height-scrolled);
     background-color: rgba(255, 255, 255, 0.98);
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
+    /* Remove height or padding changes on scroll for consistency */
+    height: var(--header-height) !important;
+    padding: 0 !important;
 }
 
 .header.hidden {
@@ -155,8 +158,9 @@ section[id] {
 }
 
 .logo {
+    height: 100%;
     display: flex;
-    align-items: center;
+    align-items: center; /* Vertically center logo and text */
 }
 
 .logo a {
@@ -166,10 +170,10 @@ section[id] {
 }
 
 .logo img {
-    height: 70px;
-    width: auto;
-    transition: transform 0.3s ease;
-    margin-right: 10px;
+    height: 60px; /* Slightly smaller than header for padding */
+    margin: 0;    /* Remove any vertical margin */
+    display: block;
+    align-self: center;
 }
 
 .logo a:hover img {
@@ -185,12 +189,29 @@ section[id] {
 
 /* Logo size adjustments for mobile devices */
 @media screen and (max-width: 768px) {
-    .logo img {
-        height: 55px; /* Reduced from 70px */
+    .header {
+        height: 80px !important;
+        padding: 0 !important;
     }
-    
-    .logo span {
-        font-size: 2.4rem; /* Reduced from 2.8rem */
+    .header-content {
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo {
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+    .logo img {
+        height: 60px;
+        margin-top: 12px; /* Nudge logo up for perfect centering */
+        margin-bottom: auto;
+        display: block;
+        align-self: center;
+    }
+    .hamburger {
     }
 }
 
@@ -254,53 +275,32 @@ section[id] {
     background-color: var(--primary-dark);
 }
 
+/* Hide hamburger by default (desktop) */
 .hamburger {
     display: none;
-    cursor: pointer;
-    width: 44px; /* Increased touch target size */
-    height: 44px; /* Increased touch target size */
-    padding: 10px;
-    position: relative;
-    z-index: 1001;
-    background: transparent;
+}
+
+/* --- Mobile Navigation: Hamburger and Nav Menu --- */
+@media screen and (max-width: 768px) {
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
     border: none;
-    outline: none;
-    -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
-}
-
-.hamburger .bar {
-    width: 25px;
-    height: 3px;
-    background-color: var(--secondary-color);
-    margin: 5px auto;
-    transition: all 0.3s ease-in-out; /* Smoother transition */
-    display: block;
-    border-radius: 2px; /* Rounded corners for bars */
-}
-
-/* Improved X animation */
-.hamburger.active .bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-    width: 25px;
-}
-
-.hamburger.active .bar:nth-child(2) {
-    opacity: 0;
-    transform: translateX(-10px);
-}
-
-.hamburger.active .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-    width: 25px;
-}
-
-/* === DEBUG: Force hamburger bars to be visible === */
-.hamburger .bar {
-    background: black !important;
-    display: block !important;
-    width: 25px !important;
-    height: 3px !important;
-    margin: 5px auto !important;
+    background: transparent;
+    position: relative;
+    top: 0;
+    right: 0;
+  }
+  .nav-menu {
+    display: none;
+  }
+  .nav-menu.active {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 /* ===== Buttons ===== */
@@ -1474,13 +1474,13 @@ footer {
     }
     
     .hamburger {
-        display: flex !important; /* Force flex display on mobile, override any previous rules */
+        display: flex !important;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        z-index: 9999 !important; /* Debug: bring to front */
-        border: 2px solid red !important; /* Debug: visible border */
-        background: yellow !important; /* Debug: visible background */
+        z-index: 9999 !important;
+        border: none !important;
+        background: transparent !important;
     }
     
     .nav-menu {
@@ -1492,7 +1492,7 @@ footer {
         height: 100vh;
         padding: 80px 20px 40px;
         overflow-y: auto;
-        background-color: var(--light-color);
+        background-color: var(--white);
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
         transition: all 0.4s cubic-bezier(0.77, 0.2, 0.05, 1.0); /* Improved transition */
         display: flex;
@@ -1534,17 +1534,16 @@ footer {
     }
     
     body.menu-open::before {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: 999;
-        opacity: 1;
-        transition: opacity 0.3s ease;
-        backdrop-filter: blur(3px); /* Add blur effect to background */
+        /* Remove overlay and filter for mobile menu */
+        background: none !important;
+        content: none !important;
+        position: static !important;
+        width: 0 !important;
+        height: 0 !important;
+        z-index: auto !important;
+        opacity: 0 !important;
+        transition: none !important;
+        backdrop-filter: none !important;
     }
     
     .hero-content h1 {
@@ -1754,13 +1753,23 @@ a.btn-secondary,
 /* ===== Mobile Navigation Improvements ===== */
 @media screen and (max-width: 768px) {
     .hamburger {
-        display: flex !important; /* Force flex display on mobile, override any previous rules */
+        display: flex !important;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        z-index: 9999 !important; /* Debug: bring to front */
-        border: 2px solid red !important; /* Debug: visible border */
-        background: yellow !important; /* Debug: visible background */
+        z-index: 99999 !important;
+        position: fixed !important;
+        top: 20px;
+        right: 20px;
+        background: #fff;
+    }
+    
+    .hamburger .bar {
+        width: 25px;
+        height: 3px;
+        background: #000;
+        margin: 5px 0;
+        border-radius: 2px;
     }
     
     .nav-menu {
@@ -1772,7 +1781,7 @@ a.btn-secondary,
         height: 100vh;
         padding: 80px 20px 40px;
         overflow-y: auto;
-        background-color: var(--light-color);
+        background-color: var(--white);
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
         transition: all 0.4s cubic-bezier(0.77, 0.2, 0.05, 1.0); /* Improved transition */
         display: flex;
@@ -1814,17 +1823,16 @@ a.btn-secondary,
     }
     
     body.menu-open::before {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: 999;
-        opacity: 1;
-        transition: opacity 0.3s ease;
-        backdrop-filter: blur(3px); /* Add blur effect to background */
+        /* Remove overlay and filter for mobile menu */
+        background: none !important;
+        content: none !important;
+        position: static !important;
+        width: 0 !important;
+        height: 0 !important;
+        z-index: auto !important;
+        opacity: 0 !important;
+        transition: none !important;
+        backdrop-filter: none !important;
     }
 }
 
@@ -2216,4 +2224,37 @@ html, body {
     .app-buttons {
         margin-top: 0.5rem;
     }
+}
+
+/* === Desktop Header Vertical Centering === */
+@media screen and (min-width: 769px) {
+  .header {
+    height: 80px !important;
+    padding: 0 !important;
+  }
+  .header-content {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Vertically center all children */
+  }
+  .logo, .nav-menu {
+    height: 100%; /* Fill header height */
+    display: flex;
+    align-items: center; /* Vertically center their content */
+  }
+  .logo img {
+    height: 60px;
+    margin: 0;
+    display: block;
+    align-self: center;
+  }
+  .nav-menu a {
+    line-height: 80px; /* Match header height for perfect centering */
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 80px;
+    display: flex;
+    align-items: center;
+  }
 } 
