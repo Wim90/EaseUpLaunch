@@ -139,6 +139,24 @@ function initNavigation() {
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
+            
+            // Check if this link points to contact.html or testimonials.html
+            const isContactPage = href === 'contact.html' || href.includes('/contact.html');
+            const isTestimonialsPage = href === 'testimonials.html' || href.includes('/testimonials.html');
+            
+            // If it's the contact or testimonials page, don't interfere with normal navigation
+            if (isContactPage || isTestimonialsPage) {
+                // Don't prevent default - allow normal navigation in same window
+                return;
+            }
+            
+            // Handle the mobile menu
+            if (isMobile && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            }
+            
             // Determine if the link is for the current page
             const currentUrl = window.location.pathname + window.location.search;
             const linkUrl = this.pathname + this.search;
@@ -149,27 +167,7 @@ function initNavigation() {
             // Check if the hash points to a section on this page
             const targetElement = hash ? document.querySelector(hash) : null;
             const isSectionLink = !!hash && targetElement;
-            const isMobileNav = isMobile && navMenu.classList.contains('active');
             
-            // Handle mobile menu closing
-            if (isMobileNav) {
-                navMenu.classList.remove('active');
-                hamburger.classList.remove('active');
-                document.body.classList.remove('menu-open');
-            }
-            
-            // Check if this is a testimonial or contact page link (should not open in new window)
-            const isInternalPageLink = href === 'testimonials.html' || 
-                                      href === 'contact.html' || 
-                                      href.includes('testimonials.html') || 
-                                      href.includes('contact.html');
-            
-            // For internal site navigation, don't do anything special
-            if (isInternalPageLink) {
-                // Allow default navigation behavior - let the browser handle it
-                return;
-            }
-
             // Only prevent default if it's an in-page section link
             if (isSamePage && isSectionLink) {
                 e.preventDefault();
@@ -500,6 +498,4 @@ function updateParallax() {
         
         ticking = true;
     }
-}
-
-// Remove duplicate code from here to end of file 
+} 
