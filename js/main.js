@@ -30,6 +30,25 @@ const listenerOpts = supportsPassive ? { passive: true } : false;
 
 // Main JavaScript file for EaseUp website
 document.addEventListener('DOMContentLoaded', function() {
+    // DEBUG: Fix for testimonials and contact pages opening in new windows
+    console.log('DOM fully loaded and parsed');
+    
+    // Find all testimonial and contact links and ensure they have no target attribute
+    document.querySelectorAll('a[href*="testimonials.html"], a[href*="contact.html"]').forEach(link => {
+        console.log('Found link:', link.getAttribute('href'));
+        // Remove any target attributes
+        if (link.hasAttribute('target')) {
+            console.log('Removing target attribute from:', link.getAttribute('href'));
+            link.removeAttribute('target');
+        }
+        
+        // Add explicit click handler to prevent opening in new window
+        link.addEventListener('click', function(e) {
+            console.log('Link clicked:', this.getAttribute('href'));
+            // Don't add any preventDefault, just log the click
+        });
+    });
+
     // Check for mobile device on load - do this first!
     checkMobile();
     
@@ -429,6 +448,13 @@ document.head.appendChild(navStyle);
 // Smooth scrolling for navigation links - modify to exclude testimonials.html and contact.html
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
+        // IMPORTANT: Skip any handling for contact and testimonials links
+        const href = this.getAttribute('href');
+        if (href.includes('contact.html') || href.includes('testimonials.html')) {
+            console.log('Skipping smooth scroll for:', href);
+            return; // Exit without preventing default
+        }
+        
         e.preventDefault();
         
         const targetId = this.getAttribute('href');
