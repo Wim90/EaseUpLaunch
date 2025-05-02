@@ -130,6 +130,9 @@ function initNavigation() {
         
         // Update active nav link based on scroll position
         updateActiveNavLink();
+        
+        // Update parallax effect on scroll
+        updateParallax();
     }, 10), listenerOpts);
     
     // Handle nav link clicks for smooth scrolling
@@ -210,35 +213,8 @@ function initParallaxEffect() {
     // Skip parallax on mobile for better performance
     if (isMobile) return;
     
-    window.addEventListener('scroll', debounce(function() {
-        if (!ticking) {
-            window.requestAnimationFrame(() => {
-                const scrollTop = window.pageYOffset;
-                
-                parallaxBgs.forEach(element => {
-                    const parent = element.parentElement;
-                    const elementTop = parent.offsetTop;
-                    const elementHeight = parent.offsetHeight;
-                    const viewportHeight = window.innerHeight;
-                    
-                    // Calculate when element is in viewport
-                    if (scrollTop + viewportHeight > elementTop && 
-                        scrollTop < elementTop + elementHeight) {
-                        
-                        // Calculate parallax shift (slower movement than scroll)
-                        const parallaxShift = (scrollTop - elementTop) * 0.4;
-                        
-                        // Apply transform with translateZ for hardware acceleration
-                        element.style.transform = `translateY(${parallaxShift}px) translateZ(0)`;
-                    }
-                });
-                
-                ticking = false;
-            });
-            
-            ticking = true;
-        }
-    }, 10), listenerOpts);
+    // Parallax is now handled in updateParallax() 
+    // which is called from the main scroll event handler
 }
 
 /**
@@ -513,61 +489,4 @@ function updateParallax() {
     }
 }
 
-// Scroll event listener (with throttling for performance)
-window.addEventListener('scroll', updateParallax, { passive: true });
-
-// Intersection Observer for fade-in animation
-const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.1
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            // Stop observing after animation is triggered
-            observer.unobserve(entry.target);
-        }
-    });
-}, observerOptions);
-
-// Add fade-in class to sections
-sections.forEach(section => {
-    section.classList.add('fade-in');
-    observer.observe(section);
-});
-
-// Also observe feature cards, benefit items, and user cards for staggered animations
-document.querySelectorAll('.feature-card').forEach((element, index) => {
-    element.classList.add('fade-in');
-    element.style.transitionDelay = `${index * 0.1}s`;
-    observer.observe(element);
-});
-
-// Initialize parallax on page load
-document.addEventListener('DOMContentLoaded', () => {
-    updateParallax();
-    
-    // Set active navigation link based on current section
-    window.addEventListener('scroll', () => {
-        let current = '';
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            
-            if (scrollY >= (sectionTop - sectionHeight / 3)) {
-                current = section.getAttribute('id');
-            }
-        });
-        
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
-                link.classList.add('active');
-            }
-        });
-    });
-}); 
+// Remove duplicate code from here to end of file 
