@@ -150,11 +150,24 @@ function initNavigation() {
             const targetElement = hash ? document.querySelector(hash) : null;
             const isSectionLink = !!hash && targetElement;
             const isMobileNav = isMobile && navMenu.classList.contains('active');
-
+            
+            // Handle mobile menu closing
             if (isMobileNav) {
                 navMenu.classList.remove('active');
                 hamburger.classList.remove('active');
                 document.body.classList.remove('menu-open');
+            }
+            
+            // Check if this is a testimonial or contact page link (should not open in new window)
+            const isInternalPageLink = href === 'testimonials.html' || 
+                                      href === 'contact.html' || 
+                                      href.includes('testimonials.html') || 
+                                      href.includes('contact.html');
+            
+            // For internal site navigation, don't do anything special
+            if (isInternalPageLink) {
+                // Allow default navigation behavior - let the browser handle it
+                return;
             }
 
             // Only prevent default if it's an in-page section link
@@ -415,7 +428,7 @@ navStyle.textContent = `
 `;
 document.head.appendChild(navStyle);
 
-// Smooth scrolling for navigation links
+// Smooth scrolling for navigation links - modify to exclude testimonials.html and contact.html
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
