@@ -76,32 +76,33 @@
         
         .cta-primary {
             display: inline-block;
-            background-color: var(--primary-color);
-            color: white;
+            background-color: white;
+            color: #A2B082;
             font-size: 1.8rem;
             font-weight: 600;
             padding: 15px 40px;
             border-radius: 50px;
             text-decoration: none;
             margin: 15px 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
             transition: all 0.3s ease;
+            border: 2px solid white;
         }
         
         .cta-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            background-color: var(--primary-dark);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            background-color: rgba(255, 255, 255, 0.9);
         }
         
         .cta-secondary {
             display: inline-block;
             background-color: transparent;
-            color: var(--primary-color);
+            color: white;
             font-size: 1.6rem;
             font-weight: 600;
             padding: 15px 30px;
-            border: 2px solid var(--primary-color);
+            border: 2px solid white;
             border-radius: 50px;
             text-decoration: none;
             margin: 15px 10px;
@@ -109,19 +110,21 @@
         }
         
         .cta-secondary:hover {
-            background-color: rgba(107, 0, 226, 0.05);
+            background-color: rgba(255, 255, 255, 0.15);
             transform: translateY(-3px);
         }
         
         .offer-badge {
             display: inline-block;
-            background-color: #ff6b6b;
+            background-color: rgba(255, 255, 255, 0.25);
             color: white;
             font-weight: 700;
             padding: 10px 20px;
             border-radius: 30px;
             margin-bottom: 30px;
             animation: pulse 2s infinite;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
         
         @keyframes pulse {
@@ -332,17 +335,22 @@
         }
         
         .sticky-cta .offer-badge {
-            background-color: rgba(255, 255, 255, 0.2);
+            background-color: rgba(255, 255, 255, 0.25);
             color: white;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            margin-bottom: 0;
         }
         
         .sticky-cta .cta-primary {
             background-color: white;
             color: #A2B082;
+            margin: 0 10px;
+            font-size: 1.6rem;
+            padding: 12px 30px;
         }
         
         .sticky-cta .cta-primary:hover {
-            background-color: #f8f8f8;
+            background-color: rgba(255, 255, 255, 0.9);
             color: #879069;
         }
         
@@ -362,6 +370,37 @@
             .app-screenshots {
                 flex-direction: column;
             }
+        }
+
+        /* Additional styles for pricing section CTA */
+        .pricing-section .cta-primary {
+            background-color: #A2B082;
+            color: white;
+            border-color: #A2B082;
+            box-shadow: 0 5px 15px rgba(162, 176, 130, 0.3);
+        }
+        
+        .pricing-section .cta-primary:hover {
+            background-color: #879069;
+            border-color: #879069;
+        }
+        
+        /* Additional styles for features section CTA */
+        .features-section .cta-primary {
+            background-color: #A2B082;
+            color: white;
+            border-color: #A2B082;
+        }
+        
+        .features-section .cta-primary:hover {
+            background-color: #879069;
+            border-color: #879069;
+        }
+        
+        /* Final CTA section */
+        .cta-section .cta-primary {
+            padding: 18px 45px;
+            font-size: 2rem;
         }
     </style>
 </head>
