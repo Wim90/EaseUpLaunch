@@ -159,12 +159,11 @@ function initNavigation() {
         link.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
             
-            // Check if this link points to contact.html or testimonials.html
+            // Check if this link points to contact.html
             const isContactPage = href === 'contact.html' || href.includes('/contact.html');
-            const isTestimonialsPage = href === 'testimonials.html' || href.includes('/testimonials.html');
             
-            // If it's the contact or testimonials page, don't interfere with normal navigation
-            if (isContactPage || isTestimonialsPage) {
+            // If it's the contact page, don't interfere with normal navigation
+            if (isContactPage) {
                 // Don't prevent default - allow normal navigation in same window
                 return;
             }
