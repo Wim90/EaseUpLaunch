@@ -36,7 +36,7 @@
         .landing-hero {
             padding: 120px 0 60px;
             text-align: center;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            background: #A2B082;
             position: relative;
             overflow: hidden;
         }
@@ -47,7 +47,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(107, 0, 226, 0.1) 0%, rgba(59, 174, 255, 0.1) 100%);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%);
             z-index: 1;
         }
         
@@ -315,19 +315,35 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background-color: white;
+            background-color: #A2B082;
             padding: 15px;
             box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
             z-index: 100;
             display: flex;
             justify-content: center;
             align-items: center;
+            gap: 15px;
             transform: translateY(100%);
             transition: transform 0.3s ease;
         }
         
         .sticky-cta.visible {
             transform: translateY(0);
+        }
+        
+        .sticky-cta .offer-badge {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+        
+        .sticky-cta .cta-primary {
+            background-color: white;
+            color: #A2B082;
+        }
+        
+        .sticky-cta .cta-primary:hover {
+            background-color: #f8f8f8;
+            color: #879069;
         }
         
         @media screen and (max-width: 768px) {
@@ -552,11 +568,6 @@
                     <li>Ad-free experience</li>
                 </ul>
                 
-                <div class="guarantee-badge">
-                    <i class="fas fa-shield-alt"></i>
-                    <span class="guarantee-text">30-Day Money-Back Guarantee</span>
-                </div>
-                
                 <a href="#" class="cta-primary">Start 7-Day Free Trial</a>
                 <p class="pricing-note">Cancel anytime during your trial. No commitment required.</p>
             </div>
@@ -618,11 +629,6 @@
             
             <div class="cta-buttons">
                 <a href="#" class="cta-primary">Start Your Free Trial</a>
-            </div>
-            
-            <div class="guarantee-badge">
-                <i class="fas fa-shield-alt"></i>
-                <span class="guarantee-text">Risk-Free: Cancel during your 7-day trial and pay nothing</span>
             </div>
         </div>
     </section>
