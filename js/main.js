@@ -543,8 +543,13 @@ function updateParallax() {
                 if (entry.isIntersecting) {
                     const section = sections.find(s => s.id === entry.target.id);
                     if (section && lastTrackedSection !== section.id) {
+                        // Track section view in Amplitude
                         if (window.amplitude && window.amplitude.track) {
                             amplitude.track('Section Viewed', { virtual_url: section.url });
+                        }
+                        // Update the browser's hash (address bar) without scrolling
+                        if (window.location.hash !== section.url) {
+                            history.replaceState(null, '', section.url);
                         }
                         lastTrackedSection = section.id;
                     }
