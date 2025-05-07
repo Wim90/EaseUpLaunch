@@ -528,9 +528,11 @@ function updateParallax() {
 // --- Amplitude Section Tracking for One-Page Navigation ---
 // Tracks when user views a main section and sends a virtual URL to Amplitude
 (function() {
-    // List of section IDs and their virtual URLs
+    // Map each section to its intended virtual URL
+    // 'top' = hero section, 'about' = About EaseUp section
     const sections = [
-        { id: 'about', url: '/#about' },
+        { id: 'top', url: '/#top' }, // Hero/top section
+        { id: 'about', url: '/#about' }, // About EaseUp section
         { id: 'features', url: '/#features' },
         { id: 'benefits', url: '/#benefits' },
         { id: 'faq', url: '/#faq' }
