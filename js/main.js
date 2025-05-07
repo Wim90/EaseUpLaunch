@@ -189,6 +189,13 @@ function initNavigation() {
             // Only prevent default if it's an in-page section link
             if (isSamePage && isSectionLink) {
                 e.preventDefault();
+                
+                // BUGFIX: Update the URL immediately when navigation is clicked
+                // This ensures the hash is updated consistently regardless of scroll position
+                const sectionHash = hash; // e.g., "#about"
+                history.pushState(null, '', sectionHash);
+                
+                // Now do the smooth scrolling
                 const headerOffset = 70;
                 const elementPosition = targetElement.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
@@ -459,6 +466,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         const targetId = this.getAttribute('href');
         if (targetId === '#') return;
         
+        // BUGFIX: Update URL immediately on click for consistent behavior
+        history.pushState(null, '', targetId);
+        
         const targetElement = document.querySelector(targetId);
         if (!targetElement) return;
         
@@ -538,6 +548,25 @@ function updateParallax() {
         { id: 'faq', url: '/#faq' }
     ];
     let lastTrackedSection = null;
+    let userClickedNav = false; // Track if user recently clicked navigation
+    let navClickTimeout = null; // Timeout to reset the userClickedNav flag
+    
+    // Listen for clicks on navigation links to prevent intersection observer from changing URL hash
+    document.querySelectorAll('.nav-menu a[href^="#"]').forEach(link => {
+        link.addEventListener('click', () => {
+            // Set a flag to indicate user clicked navigation
+            userClickedNav = true;
+            
+            // Clear any existing timeout
+            if (navClickTimeout) clearTimeout(navClickTimeout);
+            
+            // Reset the flag after 1.5 seconds (enough time for scrolling and intersection to occur)
+            navClickTimeout = setTimeout(() => {
+                userClickedNav = false;
+            }, 1500);
+        });
+    });
+    
     // Only run on index.html
     if (window.location.pathname === '/' || window.location.pathname.endsWith('index.html')) {
         const observer = new IntersectionObserver((entries) => {
@@ -549,15 +578,18 @@ function updateParallax() {
                         if (window.amplitude && window.amplitude.track) {
                             amplitude.track('Section Viewed', { virtual_url: section.url });
                         }
-                        // Update the browser's hash (address bar) without scrolling
-                        if (window.location.hash !== section.url) {
+                        
+                        // Only update URL hash if user hasn't recently clicked a navigation link
+                        if (!userClickedNav && window.location.hash !== section.url) {
                             history.replaceState(null, '', section.url);
                         }
+                        
                         lastTrackedSection = section.id;
                     }
                 }
             });
         }, { threshold: 0.5 }); // 50% of section visible
+        
         sections.forEach(section => {
             const el = document.getElementById(section.id);
             if (el) observer.observe(el);
