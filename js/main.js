@@ -523,4 +523,37 @@ function updateParallax() {
         
         ticking = true;
     }
-} 
+}
+
+// --- Amplitude Section Tracking for One-Page Navigation ---
+// Tracks when user views a main section and sends a virtual URL to Amplitude
+(function() {
+    // List of section IDs and their virtual URLs
+    const sections = [
+        { id: 'about', url: '/#about' },
+        { id: 'features', url: '/#features' },
+        { id: 'benefits', url: '/#benefits' },
+        { id: 'faq', url: '/#faq' }
+    ];
+    let lastTrackedSection = null;
+    // Only run on index.html
+    if (window.location.pathname === '/' || window.location.pathname.endsWith('index.html')) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const section = sections.find(s => s.id === entry.target.id);
+                    if (section && lastTrackedSection !== section.id) {
+                        if (window.amplitude && window.amplitude.track) {
+                            amplitude.track('Section Viewed', { virtual_url: section.url });
+                        }
+                        lastTrackedSection = section.id;
+                    }
+                }
+            });
+        }, { threshold: 0.5 }); // 50% of section visible
+        sections.forEach(section => {
+            const el = document.getElementById(section.id);
+            if (el) observer.observe(el);
+        });
+    }
+})(); 
