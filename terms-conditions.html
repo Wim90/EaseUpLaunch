@@ -66,6 +66,13 @@
             text-decoration: underline;
         }
     </style>
+    <!-- Amplitude Analytics & Session Replay -->
+    <script src="https://cdn.amplitude.com/libs/analytics-browser-2.11.1-min.js.gz"></script>
+    <script src="https://cdn.amplitude.com/libs/plugin-session-replay-browser-1.8.0-min.js.gz"></script>
+    <script>
+      window.amplitude.add(window.sessionReplay.plugin({sampleRate: 1}));
+      window.amplitude.init('f38ea9745cf4863bfce39882702ca645', {"autocapture":{"elementInteractions":true}});
+    </script>
 </head>
 <body>
     <!-- Header -->
