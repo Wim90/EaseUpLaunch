@@ -51,18 +51,45 @@
             margin: 0 auto;
             padding: 2rem;
         }
+        
+        .policy-content h1 {
+            margin-bottom: 2rem;
+            color: var(--primary-dark);
+        }
+        
+        .policy-content h2 {
+            margin: 3rem 0 1.5rem;
+            color: var(--primary-dark);
+            border-bottom: 1px solid var(--gray-light);
+            padding-bottom: 0.5rem;
+        }
+        
+        .policy-content h2:not(:first-of-type) {
+            margin-top: 4rem;
+        }
+        
+        .policy-content p {
+            margin-bottom: 1.8rem;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+        
         .policy-content ul {
-            margin: 1.5rem 0;
+            margin: 1.5rem 0 2rem;
             padding-left: 2rem;
         }
+        
         .policy-content li {
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
+            line-height: 1.7;
         }
-        .terms-date {
+        
+        .policy-date {
             margin-top: 4rem;
             color: var(--gray-dark);
             font-style: italic;
         }
+        
         .back-button {
             display: inline-block;
             margin: 2rem 0;
@@ -70,6 +97,7 @@
             text-decoration: none;
             font-weight: 600;
         }
+        
         .back-button:hover {
             text-decoration: underline;
         }
@@ -182,9 +210,9 @@
     </header>
 
     <!-- Terms and Conditions Content -->
-    <section class="policy-section" style="padding-top: 120px;">
+    <section class="policy-section" style="padding-top: 120px; background-color: #f9f9f9;">
         <div class="container">
-            <div class="policy-content">
+            <div class="policy-content" style="background-color: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
                 <a href="index.html" class="back-button"><i class="fas fa-arrow-left"></i> Back to Home</a>
                 <h1>Terms & Conditions</h1>
                 <p class="policy-date">Last updated: April 13, 2025</p>
