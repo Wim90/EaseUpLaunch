@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EaseUp is a complete well-being app for stress reduction, mood tracking, journaling, and mobility routines, all in one place.">
+    <meta name="keywords" content="wellness app, self-care app, mental health app, stress reduction app, journaling app, mood tracking">
+    <meta name="author" content="EaseUp">
+    <meta name="robots" content="index, follow">
+    
+    <meta property="og:title" content="EaseUp - Wellness In Minutes">
+    <meta property="og:description" content="A complete well-being app featuring guided breathing, mood tracking, journaling, and mobility routines in just minutes a day.">
+    <meta property="og:image" content="https://easeup.app/public/images/logo/Logo_main.png">
+    <meta property="og:url" content="https://easeup.app/landing-default.html">
+    <meta property="og:type" content="website">
+    
+    <title>EaseUp - Download Now | Comprehensive Wellness App</title>
+    <link rel="canonical" href="https://easeup.app/landing-default.html">
+    <link rel="icon" href="public/images/Faveicon_EaseUp.png" type="image/png">
+    <link rel="apple-touch-icon" href="public/images/Faveicon_EaseUp.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Structured data for mobile app -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MobileApplication",
+        "name": "EaseUp",
+        "description": "A holistic well-being app that combines guided breathing, mood tracking, journaling, and mobility routines to support mental and physical health in just minutes a day.",
+        "operatingSystem": "iOS",
+        "applicationCategory": "HealthApplication",
+        "offers": {
+            "@type": "Offer",
+            "price": "0.00",
+            "priceCurrency": "USD"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "125"
+        }
+    }
+    </script>
+    
+    <!-- Amplitude Analytics & Session Replay -->
+    <script src="https://cdn.amplitude.com/libs/analytics-browser-2.11.1-min.js.gz"></script>
+    <script src="https://cdn.amplitude.com/libs/plugin-session-replay-browser-1.8.0-min.js.gz"></script>
+    <script>
+      window.amplitude.add(window.sessionReplay.plugin({sampleRate: 1}));
+      window.amplitude.init('f38ea9745cf4863bfce39882702ca645', {"autocapture":{"elementInteractions":true}});
+    </script>
+    
+    <style>
+        :root {
+            --primary-color: #A2B082;
+            --primary-dark: #879069;
+            --secondary-color: #B3CDD1;
+            --gray-light: #f8f9fa;
+            --gray: #6c757d;
+            --gray-dark: #343a40;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: var(--gray-dark);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .download-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .download-hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 0;
+        }
+        
+        .download-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--gray-dark);
+        }
+        
+        .download-hero p {
+            font-size: 1.8rem;
+            max-width: 800px;
+            margin-bottom: 3rem;
+            color: var(--gray);
+        }
+        
+        .app-image {
+            margin: 3rem 0;
+            max-width: 350px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .app-features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 3rem;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background-color: var(--gray-light);
+            padding: 15px 25px;
+            border-radius: 10px;
+        }
+        
+        .feature-icon {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+        }
+        
+        .feature-text {
+            font-size: 1.6rem;
+            font-weight: 500;
+        }
+        
+        .download-button {
+            margin: 2rem 0;
+            transition: transform 0.3s ease;
+        }
+        
+        .download-button:hover {
+            transform: scale(1.05);
+        }
+        
+        .rating {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 2rem;
+            gap: 10px;
+        }
+        
+        .stars {
+            color: gold;
+            font-size: 1.6rem;
+        }
+        
+        .rating-text {
+            font-size: 1.6rem;
+            font-weight: 500;
+        }
+        
+        @media (max-width: 768px) {
+            .download-hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .download-hero p {
+                font-size: 1.6rem;
+            }
+            
+            .app-image {
+                max-width: 280px;
+            }
+            
+            .feature {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="download-page">
+        <div class="container">
+            <div class="download-hero">
+                <img src="public/images/logo/Logo_main.png" alt="EaseUp Logo" style="width: 120px; margin-bottom: 30px;">
+                
+                <h1>Your Complete Well-Being App</h1>
+                <p>Reduce stress, track your mood, journal, and move better — all in one place, in just minutes a day.</p>
+                
+                <div class="app-features">
+                    <div class="feature">
+                        <div class="feature-icon"><i class="fas fa-wind"></i></div>
+                        <div class="feature-text">Guided Breathing</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon"><i class="far fa-smile"></i></div>
+                        <div class="feature-text">Mood Tracking</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon"><i class="far fa-file-alt"></i></div>
+                        <div class="feature-text">Reflective Journaling</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon"><i class="fas fa-running"></i></div>
+                        <div class="feature-text">Mobility Routines</div>
+                    </div>
+                </div>
+                
+                <img src="images/home-visual.png" alt="EaseUp App Interface" class="app-image">
+                
+                <div class="download-button">
+                    <a href="#" aria-label="Download on App Store">
+                        <img src="public/images/Apple/Apple_Store_DL.png" alt="Download on App Store" style="height: 60px;">
+                    </a>
+                </div>
+                
+                <div class="rating">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="rating-text">4.8 on App Store</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Track download button clicks
+        document.addEventListener('DOMContentLoaded', function() {
+            const downloadButton = document.querySelector('.download-button a');
+            if (downloadButton) {
+                downloadButton.addEventListener('click', function() {
+                    // Log the click event to amplitude
+                    if (window.amplitude) {
+                        window.amplitude.track('Download Button Clicked', {
+                            page: 'landing-default',
+                            location: 'main'
+                        });
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html> 
