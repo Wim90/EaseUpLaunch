@@ -33,7 +33,7 @@
         "url": "https://easeup.app",
         "logo": "https://easeup.app/public/images/logo/Logo_main.png"
       },
-      "datePublished": "2023-06-15",
+      "datePublished": "2025-04-13",
       "inLanguage": "en"
     }
     </script>
@@ -64,6 +64,64 @@
         }
         .back-button:hover {
             text-decoration: underline;
+        }
+    </style>
+    <style>
+        /* Inline hamburger menu styles to ensure functionality */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+            z-index: 1001;
+            position: relative;
+        }
+        
+        .hamburger .bar {
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-dark);
+            border-radius: 10px;
+            transition: all 0.3s ease-in-out;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                padding: 80px 20px 40px;
+                background-color: white;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                transition: all 0.4s ease-in-out;
+                display: flex;
+                flex-direction: column;
+                z-index: 1000;
+            }
+            
+            .nav-menu.active {
+                right: 0;
+            }
+            
+            body.menu-open::before {
+                content: '';
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 999;
+            }
         }
     </style>
     <!-- Amplitude Analytics & Session Replay -->
@@ -109,50 +167,44 @@
         <div class="container">
             <div class="policy-content">
                 <a href="index.html" class="back-button"><i class="fas fa-arrow-left"></i> Back to Home</a>
-                <h1>Terms and Conditions</h1>
-                <p>Welcome to EaseUp. Please read these Terms and Conditions carefully before using our application and services.</p>
-                <h2>1. Acceptance of Terms</h2>
-                <p>By downloading, installing, or using the EaseUp application, you agree to be bound by these Terms and Conditions. If you do not agree to these terms, please do not use our application.</p>
-                <h2>2. Description of Service</h2>
-                <p>EaseUp provides a mobile application designed to help users manage stress, practice mindfulness, and improve overall mental wellbeing through guided breathing exercises, journaling tools, and other wellness features.</p>
-                <h2>3. User Accounts</h2>
-                <p>To access certain features of our Service, you may be required to create an account. You are responsible for:</p>
-                <ul>
-                    <li>Providing accurate and complete information when creating your account</li>
-                    <li>Maintaining the security of your account and password</li>
-                    <li>All activities that occur under your account</li>
-                    <li>Notifying us immediately of any unauthorized use of your account</li>
-                </ul>
-                <h2>4. User Content</h2>
-                <p>Our Service allows you to create, upload, and share content such as journal entries and progress notes. By submitting content to our Service, you grant us a worldwide, non-exclusive, royalty-free license to use, reproduce, and display such content in connection with providing and improving our Service.</p>
-                <h2>5. Acceptable Use</h2>
-                <p>When using EaseUp, you agree not to:</p>
-                <ul>
-                    <li>Violate any applicable laws or regulations</li>
-                    <li>Infringe upon the rights of others</li>
-                    <li>Use the Service to distribute harmful content or malware</li>
-                    <li>Attempt to gain unauthorized access to our systems or other users' accounts</li>
-                    <li>Use the Service in any way that could disable, overburden, or impair it</li>
-                </ul>
-                <h2>6. Intellectual Property</h2>
-                <p>The EaseUp application, including all content, features, and functionality, is owned by EaseUp and is protected by international copyright, trademark, and other intellectual property laws.</p>
-                <h2>7. Disclaimer of Warranties</h2>
-                <p>The Service is provided "as is" and "as available" without warranties of any kind, either express or implied. We do not guarantee that the Service will always be available, uninterrupted, or error-free.</p>
-                <h2>8. Limitation of Liability</h2>
-                <p>To the maximum extent permitted by law, EaseUp shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use or inability to use the Service.</p>
-                <h2>9. Health Disclaimer</h2>
-                <p>EaseUp is not a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of qualified health providers with any questions you may have regarding a medical condition.</p>
-                <h2>10. Changes to Terms</h2>
-                <p>We reserve the right to modify these Terms at any time. If we make material changes, we will notify you through the Service or by email. Your continued use of the Service after such modifications constitutes your acceptance of the updated Terms.</p>
-                <h2>11. Termination</h2>
-                <p>We may terminate or suspend your account and access to the Service immediately, without prior notice or liability, for any reason, including if you breach these Terms.</p>
-                <h2>12. Governing Law</h2>
-                <p>These Terms shall be governed by and construed in accordance with the laws of [Your Jurisdiction], without regard to its conflict of law provisions.</p>
-                <h2>13. Contact Information</h2>
-                <p>If you have any questions about these Terms, please contact us at:</p>
-                <p>Email: legal@easeup.app<br>
-                Address: 123 Wellness Way, Mindful City, MC 12345</p>
-                <p class="policy-date">Last Updated: June 15, 2023</p>
+                <h1>Terms & Conditions</h1>
+                <p class="policy-date">Last updated: April 13, 2025</p>
+
+                <h2>1. Our Agreement with You</h2>
+                <p>These Terms & Conditions govern your use of the EaseUp mobile application ("EaseUp", "we", "our", or "us"). By using the app, you agree to these terms. If you do not agree, you may not use the app.</p>
+
+                <h2>2. Use License</h2>
+                <p>We grant you a personal, limited, non-exclusive, non-transferable license to use the EaseUp app for your personal, non-commercial purposes, subject to these terms.</p>
+
+                <h2>3. User Content</h2>
+                <p>You retain all rights to any content you submit, post, or display on or through EaseUp. You are solely responsible for your activity in connection with the app and for any content you create or share.</p>
+
+                <h2>4. App Updates</h2>
+                <p>We may automatically update the app to improve functionality or introduce new features. Certain updates may be required for continued use of the app. Continued use of EaseUp after an update constitutes acceptance of the updated version.</p>
+
+                <h2>5. Modifications to Terms</h2>
+                <p>We reserve the right to modify or replace these terms at any time. If material changes are made, we will notify you through the app. Continued use of the app after changes take effect indicates your acceptance of the updated terms.</p>
+
+                <h2>6. Medical Disclaimer</h2>
+                <p>EaseUp provides content for general wellness, mobility training, and mindfulness support. It is not a substitute for professional medical advice, diagnosis, or treatment.</p>
+                <p>Always consult a qualified healthcare provider before beginning any new fitness or mental health practice, especially if you have existing medical conditions or injuries.</p>
+
+                <h2>7. Limitation of Liability and Assumption of Risk</h2>
+                <p>By using EaseUp, you agree to assume full responsibility for your use of the app and for any consequences resulting from it.</p>
+                <p>To the fullest extent permitted by law, you waive any right to pursue claims against the creators, developers, owners, or affiliates of EaseUp for any direct, indirect, incidental, special, or consequential damages arising out of or relating to your use of the app.</p>
+                <p>EaseUp is offered "as is" for general wellness purposes only. We make no guarantees regarding results, safety, or outcomes. You use the app voluntarily, and at your own risk.</p>
+                <p>If you do not agree to this limitation, you must not use the app.</p>
+
+                <h2>8. Termination</h2>
+                <p>We reserve the right to suspend or terminate your access to EaseUp at any time, without notice or liability, if we believe you have violated these terms or engaged in misuse of the app.</p>
+
+                <h2>9. Governing Law</h2>
+                <p>These terms are governed by the laws of the State of North Carolina, without regard to its conflict of law principles. Any disputes shall be resolved in the courts located in that state.</p>
+
+                <h2>10. Contact</h2>
+                <p>If you have questions or concerns about these Terms & Conditions, please contact us at:</p>
+                <p>📧 <a href="mailto:support@easeupapp.com">support@easeupapp.com</a></p>
+                
                 <a href="index.html" class="back-button"><i class="fas fa-arrow-left"></i> Back to Home</a>
             </div>
         </div>
@@ -204,5 +256,53 @@
     </footer>
     
     <script src="js/main.js"></script>
+    <script>
+        // Dedicated hamburger menu script for terms and conditions page
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (hamburger && navMenu) {
+                // Handle hamburger click
+                hamburger.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    hamburger.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                    document.body.classList.toggle('menu-open');
+                    
+                    console.log('Hamburger clicked - menu toggled');
+                });
+                
+                // Add click listener to document to close menu when clicking outside
+                document.addEventListener('click', function(e) {
+                    const isClickInsideMenu = navMenu.contains(e.target);
+                    const isClickOnHamburger = hamburger.contains(e.target);
+                    
+                    if (!isClickInsideMenu && !isClickOnHamburger && navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        hamburger.classList.remove('active');
+                        document.body.classList.remove('menu-open');
+                        console.log('Clicked outside - menu closed');
+                    }
+                });
+                
+                // Add listeners to nav links to close menu when clicked
+                document.querySelectorAll('.nav-menu a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        hamburger.classList.remove('active');
+                        navMenu.classList.remove('active');
+                        document.body.classList.remove('menu-open');
+                        console.log('Nav link clicked - menu closed');
+                    });
+                });
+                
+                console.log('Hamburger menu initialization complete');
+            } else {
+                console.error('Hamburger menu elements not found!');
+            }
+        });
+    </script>
 </body>
 </html> 
