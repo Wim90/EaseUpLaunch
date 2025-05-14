@@ -13,6 +13,7 @@ Allow: /css/styles.css
 Disallow: /landing-default.html
 Disallow: /landing-page.html
 Disallow: /landing-version2.html
+Disallow: /index-original.html
 
 # Sitemaps
 Sitemap: https://easeup.app/sitemap.xml

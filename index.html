@@ -3,166 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="EaseUp - Coming Soon. A holistic well-being app for stress reduction, mood tracking, journaling, and mobility routines.">
-    <meta name="robots" content="noindex">
+    <meta name="description" content="EaseUp - Coming Soon. A mindful wellness app to help you reset your body and mind.">
     <meta name="keywords" content="wellness app, self-care app, mental health app, stress reduction app, journaling app, mood tracking">
     <meta name="author" content="EaseUp">
     <meta property="og:title" content="EaseUp - Coming Soon">
-    <meta property="og:description" content="A holistic well-being app that combines guided breathing, mood tracking, journaling, and mobility routines in just minutes a day. Coming soon.">
-    <meta property="og:image" content="https://easeup.app/public/images/logo/Logo_main.png">
+    <meta property="og:description" content="A holistic well-being app that helps you reset your body and mind with short, science-based practices.">
     <meta property="og:url" content="https://easeup.app">
     <meta property="og:type" content="website">
+    
     <title>EaseUp | Coming Soon</title>
     <link rel="canonical" href="https://easeup.app">
-    <base target="_self">
     <link rel="icon" href="favicon.ico">
     <link rel="icon" href="/public/images/Faveicon_EaseUp.png" type="image/png">
     <link rel="apple-touch-icon" href="/public/images/Faveicon_EaseUp.png">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        .coming-soon-container {
-            min-height: 100vh;
+        :root {
+            --sage-green: #C5D1AC;
+            --sage-green-light: #e2e9d7;
+            --sage-green-dark: #a9b28f;
+            --white: #FFFFFF;
+            --black: #333333;
+            --gray: #F5F5F5;
+            --gray-dark: #777777;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: var(--black);
+            background-color: var(--white);
             display: flex;
             flex-direction: column;
+            min-height: 100vh;
             justify-content: center;
             align-items: center;
-            text-align: center;
             padding: 2rem;
-            background: linear-gradient(135deg, rgba(197, 209, 172, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+            text-align: center;
         }
         
-        .logo-container {
-            margin-bottom: 3rem;
-        }
-        
-        .logo-container img {
-            width: 180px;
-            height: auto;
-        }
-        
-        .coming-soon-content {
-            max-width: 600px;
+        .container {
+            max-width: 800px;
             margin: 0 auto;
+            padding: 4rem 2rem;
+            border-radius: 12px;
+            background: linear-gradient(180deg, rgba(197, 209, 172, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         }
         
-        .coming-soon-badge {
-            display: inline-block;
-            background-color: #A2B082;
-            color: white;
-            font-weight: 600;
-            padding: 0.8rem 1.5rem;
-            border-radius: 50px;
-            margin-bottom: 2rem;
-            font-size: 1.6rem;
-            animation: pulse 2s infinite;
-            letter-spacing: 0.5px;
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+        .logo {
+            margin-bottom: 3rem;
+            max-width: 150px;
         }
         
         h1 {
-            font-size: 3.6rem;
+            font-size: 3.5rem;
+            font-weight: 700;
             margin-bottom: 2rem;
-            color: #2c3e50;
+            color: var(--black);
+            position: relative;
+            display: inline-block;
+        }
+        
+        h1::after {
+            content: '';
+            position: absolute;
+            left: 25%;
+            bottom: -15px;
+            width: 50%;
+            height: 4px;
+            background-color: var(--sage-green);
+            border-radius: 4px;
         }
         
         p {
             font-size: 1.8rem;
-            color: #555;
-            margin-bottom: 3rem;
-            line-height: 1.6;
+            margin-bottom: 2.5rem;
+            color: var(--gray-dark);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
-        .notify-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            max-width: 400px;
-            margin: 0 auto;
-            width: 100%;
-        }
-        
-        .notify-form input {
-            padding: 1.2rem 1.5rem;
-            border: 2px solid rgba(197, 209, 172, 0.5);
-            border-radius: 8px;
-            font-size: 1.6rem;
-            width: 100%;
-            transition: all 0.3s ease;
-        }
-        
-        .notify-form input:focus {
-            outline: none;
-            border-color: #A2B082;
-            box-shadow: 0 0 0 3px rgba(162, 176, 130, 0.3);
-        }
-        
-        .notify-form button {
-            background-color: #A2B082;
-            color: white;
-            border: none;
-            padding: 1.2rem 2rem;
-            font-size: 1.6rem;
+        .coming-soon {
+            font-size: 2.2rem;
             font-weight: 600;
+            color: var(--sage-green-dark);
+            margin-top: 3rem;
+            padding: 1rem 2rem;
+            background-color: var(--sage-green-light);
             border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
+            display: inline-block;
         }
         
-        .notify-form button:hover {
-            background-color: #879069;
-            transform: translateY(-2px);
+        .contact {
+            margin-top: 3rem;
+            font-size: 1.6rem;
         }
         
-        .social-links {
-            margin-top: 4rem;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-        }
-        
-        .social-links a {
-            color: #555;
-            font-size: 2.4rem;
-            transition: all 0.3s ease;
-        }
-        
-        .social-links a:hover {
-            color: #A2B082;
-            transform: translateY(-3px);
-        }
-        
-        .footer-note {
-            margin-top: 5rem;
-            font-size: 1.4rem;
-            color: #777;
-        }
-        
-        .footer-links {
-            margin-top: 1rem;
-        }
-        
-        .footer-links a {
-            color: #555;
+        .contact a {
+            color: var(--sage-green-dark);
             text-decoration: none;
-            margin: 0 1rem;
-            font-size: 1.4rem;
-            transition: color 0.3s ease;
+            font-weight: 500;
         }
         
-        .footer-links a:hover {
-            color: #A2B082;
+        .contact a:hover {
             text-decoration: underline;
         }
         
-        @media (max-width: 600px) {
+        footer {
+            margin-top: 6rem;
+            font-size: 1.4rem;
+            color: var(--gray-dark);
+        }
+        
+        footer a {
+            color: var(--sage-green-dark);
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
             h1 {
                 font-size: 3rem;
             }
@@ -171,68 +141,26 @@
                 font-size: 1.6rem;
             }
             
-            .notify-form {
-                max-width: 100%;
+            .coming-soon {
+                font-size: 1.8rem;
             }
         }
     </style>
-    
-    <!-- Amplitude Analytics -->
-    <script src="https://cdn.amplitude.com/libs/analytics-browser-2.11.1-min.js.gz"></script>
-    <script>
-      window.amplitude.init('f38ea9745cf4863bfce39882702ca645', {"autocapture":{"elementInteractions":true}});
-    </script>
 </head>
 <body>
-    <div class="coming-soon-container">
-        <div class="logo-container">
-            <img src="public/images/logo/Logo_main.png" alt="EaseUp Logo">
-        </div>
-        
-        <div class="coming-soon-content">
-            <div class="coming-soon-badge">COMING SOON</div>
-            
-            <h1>Reset your body and mind with EaseUp</h1>
-            
-            <p>We're developing a holistic well-being app that combines guided breathing, mood tracking, journaling, and mobility routines in just minutes a day. Be the first to know when we launch!</p>
-            
-            <form class="notify-form" id="notify-form">
-                <input type="email" placeholder="Enter your email address" required id="notify-email">
-                <button type="submit">Notify Me on Launch</button>
-            </form>
-            
-            <div class="social-links">
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-            </div>
-            
-            <div class="footer-note">
-                <p>© 2025 EaseUp. All rights reserved.</p>
-                <div class="footer-links">
-                    <a href="privacy-policy.html">Privacy Policy</a>
-                    <a href="terms-conditions.html">Terms & Conditions</a>
-                </div>
-            </div>
+    <div class="container">
+        <img src="public/images/logo.png" alt="EaseUp Logo" class="logo">
+        <h1>EaseUp</h1>
+        <p>Reset your body and mind with short, science-based practices — no sign-up, no ads, and no distractions.</p>
+        <div class="coming-soon">Coming Soon to the App Store</div>
+        <div class="contact">
+            Questions? <a href="mailto:contact@easeup.app">Contact Us</a>
         </div>
     </div>
     
-    <script>
-        // Handle form submission
-        document.getElementById('notify-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = document.getElementById('notify-email').value;
-            
-            // Track form submission in Amplitude
-            if (window.amplitude) {
-                window.amplitude.track('Launch Notification Signup', {
-                    email: email
-                });
-            }
-            
-            // Here you would normally send this to your backend or a service like Mailchimp
-            // For now, just show a success message
-            this.innerHTML = '<p style="color: #A2B082; font-weight: 600; font-size: 1.8rem;">Thank you! We\'ll notify you when we launch.</p>';
-        });
-    </script>
+    <footer>
+        <a href="privacy-policy.html">Privacy Policy</a> | 
+        <a href="terms-conditions.html">Terms & Conditions</a>
+    </footer>
 </body>
 </html> 
