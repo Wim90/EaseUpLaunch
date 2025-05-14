@@ -1,6 +1,18 @@
 # robots.txt file for EaseUp website
 User-agent: *
-Allow: /
+Allow: /index.html
+Allow: /privacy-policy.html
+Allow: /terms-conditions.html
+Allow: /robots.txt
+Allow: /sitemap.xml
+Allow: /public/images/
+Allow: /favicon.ico
+Allow: /css/styles.css
+
+# Temporarily disallow landing pages until app launch
+Disallow: /landing-default.html
+Disallow: /landing-page.html
+Disallow: /landing-version2.html
 
 # Sitemaps
 Sitemap: https://easeup.app/sitemap.xml
