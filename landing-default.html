@@ -14,12 +14,13 @@
     <meta property="og:url" content="https://easeup.app/landing-default.html">
     <meta property="og:type" content="website">
     
-    <title>EaseUp - Download Now | Comprehensive Wellness App</title>
+    <title>EaseUp - Feel better. Think clearer. Move freely.</title>
     <link rel="canonical" href="https://easeup.app/landing-default.html">
-    <link rel="icon" href="public/images/Faveicon_EaseUp.png" type="image/png">
-    <link rel="apple-touch-icon" href="public/images/Faveicon_EaseUp.png">
+    <link rel="icon" href="/public/images/Faveicon_EaseUp.png" type="image/png">
+    <link rel="apple-touch-icon" href="/public/images/Faveicon_EaseUp.png">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Structured data for mobile app -->
     <script type="application/ld+json">
@@ -53,13 +54,18 @@
     
     <style>
         :root {
-            --primary-color: #A2B082;
-            --primary-dark: #879069;
-            --secondary-color: #B3CDD1;
-            --gray-light: #f8f9fa;
-            --gray: #6c757d;
-            --gray-dark: #343a40;
-            --white: #ffffff;
+            --primary-color: #A2B082;      /* Sage green - main app color */
+            --primary-dark: #879069;       /* Darker sage green */
+            --primary-light: #C5D1AC;      /* Lighter sage green */
+            --secondary-color: #000000;    /* Black for buttons */
+            --secondary-dark: #222222;     /* Deeper gray */
+            --secondary-light: #8D8D8D;    /* Light gray */
+            --dark-color: #2c3e50;         /* Nearly black text */
+            --gray-dark: #555555;          /* Dark gray text */
+            --gray-light: #F5F5F5;         /* Off-white */
+            --white: #fff;
+            --body-font: 'Inter', 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+            --heading-font: 'Poppins', 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
         }
         
         * {
@@ -69,109 +75,335 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-family: var(--body-font);
+            font-size: 1.6rem;
             line-height: 1.6;
-            color: var(--gray-dark);
+            color: var(--dark-color);
             background-color: var(--white);
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        html {
+            font-size: 62.5%; /* 10px = 1rem */
+            scroll-behavior: smooth;
         }
         
         .container {
             width: 100%;
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 2rem;
         }
         
         .download-page {
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 1.5rem;
+        }
+        
+        .download-page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(162, 176, 130, 0.1) 0%, rgba(255, 255, 255, 0) 50%);
+            z-index: -1;
         }
         
         .download-hero {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             text-align: center;
-            padding: 60px 0;
+            padding: 2rem 0 1.5rem;
+        }
+        
+        .logo-section {
+            margin-bottom: 1rem;
         }
         
         .download-hero h1 {
-            font-size: 3.5rem;
+            font-family: var(--heading-font);
+            font-size: 3.4rem;
             font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: var(--gray-dark);
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+            line-height: 1.2;
         }
         
         .download-hero p {
-            font-size: 1.8rem;
-            max-width: 800px;
-            margin-bottom: 3rem;
-            color: var(--gray);
+            font-family: var(--body-font);
+            font-size: 1.7rem;
+            max-width: 700px;
+            margin-bottom: 2rem;
+            color: var(--gray-dark);
+            line-height: 1.4;
         }
         
-        .app-image {
-            margin: 3rem 0;
-            max-width: 350px;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-        
-        .app-features {
+        .hero-layout {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 3rem;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+            gap: 4rem;
+            padding-top: 1rem;
         }
         
-        .feature {
+        .left-column {
+            flex: 1.4;
+            max-width: 580px;
+        }
+        
+        .right-column {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            padding: 1.5rem;
+        }
+        
+        .right-column::after {
+            content: '';
+            position: absolute;
+            top: -10%;
+            right: -10%;
+            width: 75%;
+            height: 75%;
+            border-radius: 50%;
+            background: rgba(162, 176, 130, 0.1);
+            z-index: -1;
+        }
+        
+        .feature-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.3rem;
+            margin-bottom: 1.3rem;
+        }
+        
+        .feature-box {
             display: flex;
             align-items: center;
-            gap: 15px;
-            background-color: var(--gray-light);
-            padding: 15px 25px;
-            border-radius: 10px;
+            background-color: rgba(197, 209, 172, 0.2);
+            padding: 1.5rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(162, 176, 130, 0.2);
+            height: 100%;
+        }
+        
+        .feature-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            background-color: rgba(197, 209, 172, 0.3);
+            border-color: var(--primary-light);
         }
         
         .feature-icon {
             font-size: 1.8rem;
-            color: var(--primary-color);
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 4.2rem;
+            height: 4.2rem;
+            min-width: 4.2rem;
+            background-color: var(--white);
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-right: 1.4rem;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-box:hover .feature-icon {
+            transform: scale(1.1);
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
         }
         
         .feature-text {
             font-size: 1.6rem;
             font-weight: 500;
+            color: var(--dark-color);
+            line-height: 1.3;
+        }
+        
+        .download-section {
+            margin-top: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         
         .download-button {
-            margin: 2rem 0;
+            margin-bottom: 0;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+            transform: scale(1.1);
+        }
+        
+        .download-button::before {
+            content: '';
+            position: absolute;
+            top: -1.2rem;
+            left: -1.8rem;
+            right: -1.8rem;
+            bottom: -1.2rem;
+            background: rgba(162, 176, 130, 0.15);
+            border-radius: 18px;
+            z-index: -1;
+            transform: scale(0.9);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .download-button:hover::before {
+            transform: scale(1);
+            opacity: 1;
+        }
+        
+        .download-button a {
+            display: inline-block;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .download-button img {
+            height: 65px;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+            transition: all 0.3s ease;
+            display: block;
+        }
+        
+        .download-button:hover img {
+            filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.3));
+            transform: translateY(-2px);
+        }
+        
+        .app-image {
+            max-width: 300px;
+            width: 100%;
+            height: auto;
+            border-radius: 28px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.18);
             transition: transform 0.3s ease;
+            position: relative;
+            z-index: 2;
         }
         
-        .download-button:hover {
-            transform: scale(1.05);
+        .app-image:hover {
+            transform: translateY(-5px) rotate(2deg);
         }
         
-        .rating {
+        .app-image-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 100%;
+        }
+        
+        .app-image-container::before {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: rgba(197, 209, 172, 0.3);
+            top: -50px;
+            right: -40px;
+            z-index: 1;
+            animation: pulse 4s infinite ease-in-out;
+        }
+        
+        .app-image-container::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: rgba(197, 209, 172, 0.2);
+            bottom: -30px;
+            left: -30px;
+            z-index: 1;
+            animation: pulse 4s infinite ease-in-out 1s;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .back-to-home {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
             display: flex;
             align-items: center;
-            justify-content: center;
-            margin-top: 2rem;
-            gap: 10px;
-        }
-        
-        .stars {
-            color: gold;
-            font-size: 1.6rem;
-        }
-        
-        .rating-text {
-            font-size: 1.6rem;
+            gap: 0.8rem;
+            text-decoration: none;
+            color: var(--gray-dark);
+            font-size: 1.4rem;
             font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .back-to-home:hover {
+            color: var(--primary-dark);
+        }
+        
+        .back-to-home i {
+            font-size: 1.2rem;
+        }
+        
+        @media (max-width: 992px) {
+            .hero-layout {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 2rem;
+            }
+            
+            .left-column, 
+            .right-column {
+                flex: 0 0 auto;
+            }
+            
+            .left-column {
+                width: 55%;
+            }
+            
+            .right-column {
+                width: 40%;
+                margin-top: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 1rem;
+            }
+            
+            .app-image {
+                max-width: 250px;
+            }
+            
+            .download-button img {
+                height: 55px;
+            }
+            
+            .feature-text {
+                font-size: 1.5rem;
+            }
         }
         
         @media (max-width: 768px) {
@@ -180,64 +412,158 @@
             }
             
             .download-hero p {
-                font-size: 1.6rem;
+                font-size: 1.5rem;
+                margin-bottom: 1.2rem;
+            }
+            
+            .left-column {
+                width: 100%;
+                order: 2;
+            }
+            
+            .right-column {
+                width: 100%;
+                order: 1;
+                margin-bottom: 1.5rem;
+            }
+            
+            .feature-row {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            
+            .download-section {
+                margin-top: 1.5rem;
             }
             
             .app-image {
-                max-width: 280px;
+                max-width: 160px;
             }
             
-            .feature {
-                width: 100%;
+            .app-image-container::before {
+                width: 80px;
+                height: 80px;
+                top: -20px;
+                right: -15px;
+            }
+            
+            .app-image-container::after {
+                width: 60px;
+                height: 60px;
+                bottom: -15px;
+                left: -15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .download-hero h1 {
+                font-size: 2.6rem;
+            }
+            
+            .download-hero p {
+                font-size: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .download-button img {
+                height: 50px;
+            }
+            
+            .feature-icon {
+                width: 3.2rem;
+                height: 3.2rem;
+                min-width: 3.2rem;
+            }
+            
+            .back-to-home {
+                top: 1rem;
+                left: 1rem;
+                font-size: 1.3rem;
+            }
+            
+            .app-image {
+                max-width: 140px;
+            }
+            
+            .right-column {
+                margin-bottom: 1rem;
+            }
+            
+            .feature-row {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+            }
+            
+            .feature-text {
+                font-size: 1.4rem;
+            }
+            
+            .app-image-container::before {
+                width: 60px;
+                height: 60px;
+                top: -10px;
+                right: -10px;
+            }
+            
+            .app-image-container::after {
+                width: 40px;
+                height: 40px;
+                bottom: -10px;
+                left: -10px;
             }
         }
     </style>
 </head>
 <body>
     <div class="download-page">
+        <a href="index.html" class="back-to-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        
         <div class="container">
             <div class="download-hero">
-                <img src="public/images/logo/Logo_main.png" alt="EaseUp Logo" style="width: 120px; margin-bottom: 30px;">
+                <div class="logo-section">
+                    <img src="public/images/logo/Logo_main.png" alt="EaseUp Logo" style="width: 100px;">
+                </div>
                 
-                <h1>Your Complete Well-Being App</h1>
+                <h1>Your Complete Well-Being Solution</h1>
                 <p>Reduce stress, track your mood, journal, and move better — all in one place, in just minutes a day.</p>
                 
-                <div class="app-features">
-                    <div class="feature">
-                        <div class="feature-icon"><i class="fas fa-wind"></i></div>
-                        <div class="feature-text">Guided Breathing</div>
+                <div class="hero-layout">
+                    <div class="left-column">
+                        <div class="feature-row">
+                            <div class="feature-box">
+                                <div class="feature-icon"><i class="fas fa-wind"></i></div>
+                                <div class="feature-text">Guided Breathing</div>
+                            </div>
+                            <div class="feature-box">
+                                <div class="feature-icon"><i class="far fa-smile"></i></div>
+                                <div class="feature-text">Mood Tracking</div>
+                            </div>
+                        </div>
+                        <div class="feature-row">
+                            <div class="feature-box">
+                                <div class="feature-icon"><i class="far fa-file-alt"></i></div>
+                                <div class="feature-text">Reflective Journaling</div>
+                            </div>
+                            <div class="feature-box">
+                                <div class="feature-icon"><i class="fas fa-running"></i></div>
+                                <div class="feature-text">Mobility Routines</div>
+                            </div>
+                        </div>
+                        
+                        <div class="download-section">
+                            <div class="download-button">
+                                <a href="#" aria-label="Download on App Store">
+                                    <img src="public/images/Apple/Apple_Store_DL.png" alt="Download on App Store">
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="feature">
-                        <div class="feature-icon"><i class="far fa-smile"></i></div>
-                        <div class="feature-text">Mood Tracking</div>
+                    
+                    <div class="right-column">
+                        <div class="app-image-container">
+                            <img src="./images/home-visual.png" alt="EaseUp App Interface" class="app-image">
+                        </div>
                     </div>
-                    <div class="feature">
-                        <div class="feature-icon"><i class="far fa-file-alt"></i></div>
-                        <div class="feature-text">Reflective Journaling</div>
-                    </div>
-                    <div class="feature">
-                        <div class="feature-icon"><i class="fas fa-running"></i></div>
-                        <div class="feature-text">Mobility Routines</div>
-                    </div>
-                </div>
-                
-                <img src="images/home-visual.png" alt="EaseUp App Interface" class="app-image">
-                
-                <div class="download-button">
-                    <a href="#" aria-label="Download on App Store">
-                        <img src="public/images/Apple/Apple_Store_DL.png" alt="Download on App Store" style="height: 60px;">
-                    </a>
-                </div>
-                
-                <div class="rating">
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <div class="rating-text">4.8 on App Store</div>
                 </div>
             </div>
         </div>
