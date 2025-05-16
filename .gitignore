@@ -1,0 +1,29 @@
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+
+# Thumbnails
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Temporary files
+*.bak
+*.tmp
+.tmp.*
+*.swp
+*~.nib
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# IDE files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace 
