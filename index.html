@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EaseUp - The holistic well-being app for stress reduction, mood tracking, journaling, and mobility routines. Simple, privacy-focused self-care in minutes a day.">
+    <meta name="keywords" content="wellness app, self-care app, mental health app, stress reduction app, journaling app, mood tracking">
+    <meta name="author" content="EaseUp">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="EaseUp - Make Self-Care a Habit">
+    <meta property="og:description" content="A holistic well-being app that combines guided breathing, mood tracking, journaling, and mobility routines in just minutes a day.">
+    <meta property="og:image" content="https://easeup.app/public/images/logo/Logo_main.png">
+    <meta property="og:url" content="https://easeup.app">
+    <meta property="og:type" content="website">
+    <title>EaseUp | Reset your body and mind</title>
+    <link rel="canonical" href="https://easeup.app">
+    <base target="_self">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/public/images/Faveicon_EaseUp.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Preload hero image for performance -->
+    <!-- <link rel="preload" as="image" href="images/hero-bg.jpg"> -->
+    
+    <!-- Structured data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MobileApplication",
+        "name": "EaseUp",
+        "description": "A holistic well-being app that combines guided breathing, mood tracking, journaling, and mobility routines to support mental and physical health in just minutes a day.",
+        "operatingSystem": "iOS",
+        "applicationCategory": "HealthApplication",
+        "offers": {
+            "@type": "Offer",
+            "price": "0.00",
+            "priceCurrency": "USD"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "125"
+        }
+    }
+    </script>
+
+    <!-- Amplitude Analytics & Session Replay -->
+    <script src="https://cdn.amplitude.com/libs/analytics-browser-2.11.1-min.js.gz"></script>
+    <script src="https://cdn.amplitude.com/libs/plugin-session-replay-browser-1.8.0-min.js.gz"></script>
+    <script>
+      window.amplitude.add(window.sessionReplay.plugin({sampleRate: 1}));
+      window.amplitude.init('f38ea9745cf4863bfce39882702ca645', {"autocapture":{"elementInteractions":true}});
+    </script>
+    <!-- Add Google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="#top">
+                        <img src="public/images/logo/Logo_main.png" alt="EaseUp Logo" />
+                    </a>
+                </div>
+                
+                <nav>
+                    <!-- Hamburger menu button for mobile -->
+                    <div class="hamburger">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </div>
+                    
+                    <ul class="nav-menu">
+                        <li><a href="#top">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#benefits">Benefits</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="business.html">For Business</a></li>
+                        <li><a href="contact.html" rel="noopener">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Top anchor for home section -->
+    <a id="top" class="top-anchor"></a>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="parallax-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div style="position: relative; z-index: 20;">
+                        <h1>Make Self-Care a Habit with EaseUp</h1>
+                        <p>An intuitive and effective self-care app designed to help you feel better quickly through short, actionable practices.</p>
+                        <div class="hero-buttons">
+                            <span style="display: inline-block; padding: 4px 8px; background-color: transparent;">
+                                <img src="public/images/Apple/Apple_Store_DL.png" alt="Download on App Store" class="app-store-img" style="max-height: 60px;">
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="images/home-visual.png" alt="EaseUp App Interface" 
+                         style="max-width: 250px; height: auto;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <a id="about" class="section-anchor"></a>
+        <div class="container">
+            <h2 class="section-title">About EaseUp</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Stress, anxiety, and physical inactivity are quietly becoming public health threats. From packed schedules and constant screen time to sedentary work habits, many people are struggling to care for their mental and physical well-being. EaseUp was created to offer a simple, sustainable way to counter this, helping people feel better through short, accessible practices that fit into daily life.</p>
+                    
+                    <h3>The facts:</h3>
+                    <ul class="about-facts">
+                        <li><strong>1 in 4 U.S. adults</strong> reports getting no physical activity outside of work. This sedentary lifestyle is directly linked to chronic pain, cardiovascular disease, and even early death.
+                            <br><em>(Source: America's Health Rankings)</em>
+                        </li>
+                        <li>Physical inactivity is projected to cause <strong>500 million new cases of preventable disease</strong> by 2030, costing the world <strong>$27 billion every year</strong>.
+                            <br><em>(Source: The Lancet Global Health, 2022)</em>
+                        </li>
+                        <li>More than <strong>1 in 3 U.S. adults</strong> reports symptoms of anxiety or depression, yet the majority do not receive professional care.
+                            <br><em>(Source: CDC, 2023)</em>
+                        </li>
+                        <li>Just 10 minutes of daily movement can reduce poor mental health days by over 40%.
+                            <br><em>(Source: UCLA Health)</em>
+                        </li>
+                    </ul>
+                    
+                    <p>Despite these numbers, most wellness apps feel like another chore. They demand your time, attention, or data.</p>
+                    
+                    <p>EaseUp delivers a refreshingly intuitive solution. Quick, meaningful well-being support that fits into real life.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section with Parallax -->
+    <section class="features-section">
+        <a id="features" class="section-anchor"></a>
+        <div class="container">
+            <h2 class="section-title">Core Features</h2>
+            <p class="section-subtitle">Four powerful tools to help you feel better in minutes</p>
+            
+            <div class="features-wrapper">
+                <div class="feature-block">
+                    <div class="feature-icon">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Guided Breathing</h3>
+                        <p>Six scientifically-backed breathing techniques to reduce stress instantly, with visual guidance and haptic feedback.</p>
+                        <ul class="feature-list">
+                            <li>Box breathing</li>
+                            <li>2:1 Breathing</li>
+                            <li>4-7-8 Breathing</li>
+                            <li>Resonance breathing</li>
+                            <li>Purse-lip breathing</li>
+                            <li>Belly breathing</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="feature-block">
+                    <div class="feature-icon">
+                        <i class="far fa-file-alt"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Reflective Journaling</h3>
+                        <p>Process emotions and gain clarity with guided writing prompts designed to help you reflect on daily experiences.</p>
+                        <ul class="feature-list">
+                            <li>120+ guided prompts</li>
+                            <li>12 thematic collections</li>
+                            <li>Free-form writing</li>
+                            <li>Secure and private</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="feature-block">
+                    <div class="feature-icon">
+                        <i class="far fa-smile"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Mood Tracking</h3>
+                        <p>Understand your emotions with quick daily check-ins that help you identify patterns in your emotional wellbeing.</p>
+                        <ul class="feature-list">
+                            <li>Quick emoji selection</li>
+                            <li>Customizable tags</li>
+                            <li>Daily and weekly insights</li>
+                            <li>Trend visualization</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="feature-block">
+                    <div class="feature-icon">
+                        <i class="fas fa-running"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Mobility Routines</h3>
+                        <p>Improve flexibility and reduce discomfort with guided movement sessions designed for all experience levels.</p>
+                        <ul class="feature-list">
+                            <li>15 guided routines</li>
+                            <li>64 distinct exercises</li>
+                            <li>Targeted relief options</li>
+                            <li>No equipment needed</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="features-cta">
+                <div class="features-summary">
+                    <h3>All-in-One Well-Being App</h3>
+                    <ul>
+                        <li>Feel better in just minutes with quick sessions</li>
+                        <li>Privacy-first design with no data tracking or ads</li>
+                        <li>Works offline so you can practice anytime, anywhere</li>
+                        <li>Personalized guidance based on your needs</li>
+                    </ul>
+                </div>
+                <div class="app-buttons">
+                    <span style="display: inline-block; padding: 4px 8px; background-color: transparent;">
+                        <img src="public/images/Apple/Apple_Store_DL.png" alt="Download on App Store" class="app-store-img" style="max-height: 60px;">
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <a id="benefits" class="section-anchor"></a>
+        <div class="container">
+            <h2 class="section-title">Benefits</h2>
+            
+            <div class="benefits-wrapper">
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-cubes"></i>
+                    </div>
+                    <div class="benefit-content">
+                        <h3>All-in-One Simplicity</h3>
+                        <p>Four key wellness tools combined in one seamless experience.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="benefit-content">
+                        <h3>Feel Better in Minutes</h3>
+                        <p>Quick sessions provide fast emotional and physical relief.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <div class="benefit-content">
+                        <h3>Personalized Support</h3>
+                        <p>The "Guide Me" feature in both Breathing and Move adapts recommendations to your needs.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="benefit-content">
+                        <h3>Privacy First</h3>
+                        <p>No data tracking. No ads. Secure iCloud backup and biometric app lock included.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="benefit-content">
+                        <h3>Designed for Habit Formation</h3>
+                        <p>Gentle reminders, streak tracking, and insights help you stay consistent.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-universal-access"></i>
+                    </div>
+                    <div class="benefit-content">
+                        <h3>Always Accessible</h3>
+                        <p>No signal? No problem. Daily features work offline.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="benefits-cta">
+                <h3>A new standard in Well-Being Apps</h3>
+                <p><strong>EaseUp</strong> isn't about chasing perfection. It's about making well-being feel doable.</p>
+                <p>Whether you're between meetings, recovering from a flight, or winding down before bed, EaseUp helps you feel better, anytime, anywhere.</p>
+                
+                <div class="app-buttons">
+                    <span style="display: inline-block; padding: 4px 8px; background-color: transparent;">
+                        <img src="public/images/Apple/Apple_Store_DL.png" alt="Download on App Store" class="app-store-img" style="max-height: 60px;">
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <a id="faq" class="section-anchor"></a>
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Everything you need to know about EaseUp</p>
+            
+            <div class="faq-wrapper">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What is EaseUp?</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>EaseUp is an intuitive and effective well-being app designed to help users feel better quickly and sustainably through short, actionable practices. Combining guided breathing, mood tracking, reflective journaling, and mobility-based movement routines, EaseUp supports both mental clarity and physical comfort in just minutes a day.</p>
+                        <p>With personalized recommendations, an ad-free experience, a privacy-first design, and no need for an internet connection to use daily features, the app makes self-care effortless and dependable. Whether you need a quick moment of calm, a flexible body, or a clearer mind, EaseUp offers a straightforward path to better well-being.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What's included in a EaseUp subscription?</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>An EaseUp subscription unlocks the full experience of the app, giving you access to all premium content and features designed to support your mental and physical well-being. The subscription includes:</p>
+                        <ul>
+                            <li>Full access to all breathing exercises, mobility routines, and guided reflections</li>
+                            <li>Personalized recommendations based on your goals and usage</li>
+                            <li>Premium mood tracking tools with deeper insights over time</li>
+                            <li>Early access to new features and exclusive content updates</li>
+                            <li>A completely ad-free experience with offline availability for all core features</li>
+                        </ul>
+                        <p>With a subscription, you get everything you need to make self-care simple, consistent, and effective right from your phone.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Where should I get started once I download the app?</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We recommend starting with a quick mood check-in or a guided breathing session. These take just a minute and help you get a feel for the app. You can then explore the four main features — <strong>Mood</strong>, <strong>Breathing</strong>, <strong>Reflections</strong>, and <strong>Move</strong> — at your own pace.</p>
+                        <p>Each one is designed to support your well-being in a specific way, and you don't need to commit to a long routine to feel the benefits. Just a few minutes a day can make a difference.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What devices support the EaseUp app?</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>EaseUp is currently available for iPhone running iOS 15 or later. The app is designed and optimized specifically for iPhone to ensure a smooth, focused, and private experience. iPad support is not available at this time.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-cta">
+                <h3>Ready to start your self-care journey?</h3>
+                <span style="display: inline-block; padding: 4px 8px; background-color: transparent;">
+                    <img src="public/images/Apple/Apple_Store_DL.png" alt="Download on App Store" class="app-store-img" style="max-height: 60px;">
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact/Footer Section -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="public/images/logo/Logo_main.png" alt="EaseUp Logo">
+                    <span>EaseUp</span>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <ul>
+                            <li><a href="#top">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#features">Features</a></li>
+                            <li><a href="#benefits">Benefits</a></li>
+                            <li><a href="#faq">FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <ul>
+                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                            <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <ul>
+                            <li><a href="contact.html" rel="noopener">Contact Us</a></li>
+                            <li><a href="#">Press Kit</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><img src="public/images/Social/bluesky.png" alt="Bluesky" style="width: 20px; height: 20px;"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 EaseUp. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    
+    <!-- Implement schema.org structured data for the Organization -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "EaseUp",
+        "url": "https://easeup.app",
+        "logo": "https://easeup.app/public/images/logo/Logo_main.png",
+        "sameAs": [
+            "https://instagram.com/easeup_app",
+            "https://bsky.app/profile/easeup.bsky.social"
+        ],
+        "description": "EaseUp is a holistic well-being app that combines guided breathing, mood tracking, reflective journaling, and mobility-based movement routines to support both mental clarity and physical comfort in just minutes a day."
+    }
+    </script>
+    
+    <!-- Add FAQ structured data to help with rich results -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is EaseUp?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "EaseUp is an intuitive and effective well-being app designed to help users feel better quickly and sustainably through short, actionable practices. Combining guided breathing, mood tracking, reflective journaling, and mobility-based movement routines, EaseUp supports both mental clarity and physical comfort in just minutes a day."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What's included in a EaseUp subscription?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "An EaseUp subscription unlocks the full experience of the app, giving you access to all premium content and features designed to support your mental and physical well-being. The subscription includes full access to all breathing exercises, mobility routines, and guided reflections, personalized recommendations based on your goals and usage, premium mood tracking tools with deeper insights over time, early access to new features and exclusive content updates, and a completely ad-free experience with offline availability for all core features."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Where should I get started once I download the app?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We recommend starting with a quick mood check-in or a guided breathing session. These take just a minute and help you get a feel for the app. You can then explore the four main features — Mood, Breathing, Reflections, and Move — at your own pace."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What devices support the EaseUp app?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "EaseUp is currently available for iPhone running iOS 15 or later. The app is designed and optimized specifically for iPhone to ensure a smooth, focused, and private experience. iPad support is not available at this time."
+                }
+            }
+        ]
+    }
+    </script>
+</body>
+</html> 

@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EaseUp for Business - Corporate Self-Care Solutions to improve employee wellbeing, reduce stress, and boost productivity.">
+    <meta name="keywords" content="corporate self-care, employee wellness, workplace wellbeing, stress reduction, employee productivity">
+    <meta name="author" content="EaseUp">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="EaseUp for Business | Corporate Self-Care Solutions">
+    <meta property="og:description" content="Improve employee wellbeing, reduce stress, and boost productivity with EaseUp's corporate self-care solutions.">
+    <meta property="og:image" content="https://easeup.app/public/images/logo/Logo_main.png">
+    <meta property="og:url" content="https://easeup.app/business">
+    <meta property="og:type" content="website">
+    <title>EaseUp for Business | Corporate Self-Care Solutions</title>
+    <link rel="canonical" href="https://easeup.app/business">
+    <base target="_self">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/public/images/Faveicon_EaseUp.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Amplitude Analytics & Session Replay -->
+    <script src="https://cdn.amplitude.com/libs/analytics-browser-2.11.1-min.js.gz"></script>
+    <script src="https://cdn.amplitude.com/libs/plugin-session-replay-browser-1.8.0-min.js.gz"></script>
+    <script>
+      window.amplitude.add(window.sessionReplay.plugin({sampleRate: 1}));
+      window.amplitude.init('f38ea9745cf4863bfce39882702ca645', {"autocapture":{"elementInteractions":true}});
+    </script>
+    <!-- Add Google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Ensure consistent background color */
+        body {
+            background-color: var(--white);
+        }
+        
+        /* Business page specific styles */
+        .business-hero {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+            color: white;
+            padding: 100px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        /* Add subtle pattern overlay for better text contrast */
+        .business-hero:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjUiPgo8cmVjdCB3aWR0aD0iNSIgaGVpZ2h0PSI1IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDQiPjwvcmVjdD4KPHBhdGggZD0iTTAgNUw1IDBaTTYgNEw0IDZaTS0xIDFMMSAtMVoiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2Utb3BhY2l0eT0iMC4wNSI+PC9wYXRoPgo8L3N2Zz4=');
+            opacity: 0.4;
+            z-index: 1;
+        }
+        
+        .business-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .business-hero h1 {
+            font-size: 4rem;
+            margin-bottom: 25px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            line-height: 1.2;
+        }
+        
+        .business-hero p {
+            font-size: 1.8rem;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            line-height: 1.6;
+            font-weight: 400;
+            opacity: 0.95;
+            letter-spacing: 0.2px;
+        }
+        
+        /* Update the font size for the second paragraph */
+        .business-hero .context-text {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.5;
+            opacity: 0.9;
+        }
+        
+        .business-hero-badge {
+            background-color: rgba(255,255,255,0.15);
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            backdrop-filter: blur(5px);
+        }
+        
+        .business-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+            position: relative;
+        }
+        
+        .business-nav-button {
+            background-color: white;
+            color: var(--primary-dark);
+            padding: 22px 40px;
+            border-radius: 35px;
+            font-weight: 600;
+            font-size: 1.25rem;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+        }
+        
+        .business-nav-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        }
+        
+        .business-nav-button.active {
+            background-color: var(--primary-dark);
+            color: white;
+        }
+        
+        .business-nav-button i {
+            font-size: 1.25rem;
+            margin-right: 10px;
+        }
+        
+        .business-content-section {
+            padding: 60px 0;
+            font-size: 1.25rem; /* Increased base font size for all content */
+        }
+        
+        .business-section {
+            display: none;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .business-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .pitch-header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .pitch-header h2 {
+            color: var(--primary-dark);
+            font-size: 2.6rem;
+            margin-bottom: 20px;
+        }
+        
+        .pain-points {
+            background-color: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+        }
+        
+        .pain-points h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .pain-points p {
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            line-height: 1.6;
+        }
+        
+        .pain-points ul {
+            list-style-type: none;
+            padding-left: 5px;
+        }
+        
+        .pain-points ul li {
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 15px;
+            line-height: 1.7;
+            font-size: 1.4rem;
+        }
+        
+        .pain-points ul li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .value-prop {
+            margin-bottom: 60px;
+            padding: 35px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        
+        .value-prop h3 {
+            color: var(--primary-dark);
+            font-size: 2rem;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .value-prop h3 i {
+            margin-right: 12px;
+            color: var(--primary-color);
+            font-size: 1.8rem;
+        }
+        
+        .data-point {
+            background-color: #f0f5ff;
+            padding: 20px 25px;
+            border-left: 4px solid var(--primary-color);
+            margin-bottom: 25px;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .data-point p {
+            font-weight: 500;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .data-point .stat {
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+        
+        .data-point .source {
+            font-size: 1.15rem;
+            color: #666;
+            margin-top: 12px;
+        }
+        
+        .data-point .source a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .data-point .source a:hover {
+            text-decoration: underline;
+        }
+        
+        .how-helps {
+            margin-top: 30px;
+        }
+        
+        .how-helps p {
+            font-size: 1.4rem;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        
+        .cta-section {
+            text-align: center;
+            margin-top: 60px;
+            padding: 60px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .cta-section h3 {
+            font-size: 2.3rem;
+            margin-bottom: 30px;
+            color: var(--primary-dark);
+            line-height: 1.4;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.4rem;
+            margin-top: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+        }
+        
+        /* HR Benefits CTA Styles */
+        .hr-benefits-teaser {
+            text-align: center;
+            max-width: 800px;
+            margin: 60px auto 0;
+            background-color: #f0f7ff;
+            padding: 40px;
+            border-radius: 10px;
+        }
+        
+        .hr-benefits-teaser h3 {
+            color: var(--primary-dark);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hr-benefits-teaser p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .hr-expand-button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .hr-expand-button i {
+            margin-left: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .hr-expand-button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+        
+        .hr-expand-button.active i {
+            transform: rotate(180deg);
+        }
+        
+        .hr-benefits-content {
+            display: none;
+            margin-top: 40px;
+            margin-bottom: 60px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hr-benefits-content.active {
+            display: grid;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .hr-expanded-content {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: left;
+        }
+        
+        .hr-stat-header {
+            margin-bottom: 30px;
+        }
+        
+        .hr-stat-header h4 {
+            font-size: 1.8rem;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+        }
+        
+        .hr-stat-header p {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .highlight-stat {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        
+        .hr-factors-section {
+            margin-bottom: 30px;
+        }
+        
+        .hr-factors-section h4 {
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+        }
+        
+        .hr-factors-list {
+            list-style-type: none;
+            padding-left: 5px;
+        }
+        
+        .hr-factors-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 15px;
+            font-size: 1.25rem;
+            line-height: 1.6;
+        }
+        
+        .hr-factors-list li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .hr-implication {
+            background-color: #f7f9ff;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .hr-implication h4 {
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+        }
+        
+        .hr-solution-list {
+            list-style-type: none;
+            padding-left: 0;
+            margin-bottom: 25px;
+        }
+        
+        .hr-solution-list li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+        
+        .hr-solution-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .hr-conclusion {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            font-weight: 500;
+            color: var(--primary-dark);
+            border-top: 1px solid rgba(0,0,0,0.1);
+            padding-top: 20px;
+            margin-top: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .business-hero {
+                padding: 80px 0 60px;
+            }
+            
+            .business-hero h1 {
+                font-size: 3rem;
+            }
+            
+            .business-hero p {
+                font-size: 1.4rem;
+                padding: 0 20px;
+                margin-bottom: 40px;
+            }
+            
+            .business-hero .context-text {
+                font-size: 1.3rem;
+                padding: 0 20px;
+            }
+            
+            .business-navigation {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .business-nav-button {
+                width: 100%;
+                max-width: 300px;
+                padding: 18px 30px;
+                font-size: 1.15rem;
+            }
+            
+            .value-prop {
+                padding: 20px 15px;
+            }
+            
+            .pitch-header h2 {
+                font-size: 2.2rem;
+            }
+            
+            .pain-points h3,
+            .value-prop h3 {
+                font-size: 1.8rem;
+            }
+            
+            .pain-points p,
+            .pain-points ul li,
+            .how-helps p {
+                font-size: 1.3rem;
+            }
+            
+            .data-point p {
+                font-size: 1.3rem;
+            }
+            
+            .cta-section {
+                padding: 40px 25px;
+            }
+            
+            .cta-section h3 {
+                font-size: 2rem;
+            }
+            
+            .cta-button {
+                font-size: 1.3rem;
+                padding: 18px 35px;
+            }
+            
+            /* HR Benefits mobile styles */
+            .hr-benefits-content {
+                padding: 25px 15px;
+            }
+            
+            .hr-benefits-teaser {
+                padding: 30px 20px;
+            }
+            
+            .hr-benefits-teaser h3 {
+                font-size: 2.2rem;
+            }
+            
+            .hr-benefits-teaser p {
+                font-size: 1.3rem;
+            }
+            
+            .hr-stat-header h4 {
+                font-size: 1.6rem;
+            }
+            
+            .hr-stat-header p,
+            .hr-conclusion {
+                font-size: 1.2rem;
+            }
+            
+            .hr-factors-list li,
+            .hr-solution-list li {
+                font-size: 1.15rem;
+                padding-left: 20px;
+            }
+            
+            .hr-factors-section h4,
+            .hr-implication h4 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html#top">
+                        <img src="public/images/logo/Logo_main.png" alt="EaseUp Logo" />
+                    </a>
+                </div>
+                
+                <nav>
+                    <!-- Hamburger menu button for mobile -->
+                    <div class="hamburger">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </div>
+                    
+                    <ul class="nav-menu">
+                        <li><a href="index.html#top">Home</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="index.html#benefits">Benefits</a></li>
+                        <li><a href="index.html#faq">FAQ</a></li>
+                        <li><a href="business.html">For Business</a></li>
+                        <li><a href="contact.html" rel="noopener">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Top anchor for business section -->
+    <a id="top" class="top-anchor"></a>
+
+    <!-- Business Hero Section -->
+    <section class="business-hero" id="business-hero">
+        <div class="container">
+            <div class="business-hero-badge">Corporate Self-Care Solutions</div>
+            <h1>EaseUp for Business</h1>
+            <p>Support your team's mental and physical wellbeing with simple, effective tools that fit into their busy workday.</p>
+            
+            <p class="context-text">Wellbeing challenges share common roots but manifest differently. From isolation in remote work to social pressures in office settings. Select your workplace type below to discover solutions designed for your specific needs.</p>
+            
+            <div class="business-navigation">
+                <button id="remote-btn" class="business-nav-button active">
+                    <i class="fas fa-laptop-house"></i> Remote-First Workplaces
+                </button>
+                <button id="office-btn" class="business-nav-button">
+                    <i class="fas fa-building"></i> In-Person Workplaces
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Content Section -->
+    <section class="business-content-section">
+        <div class="container">
+            <!-- Remote-First Companies Section -->
+            <div id="remote-section" class="business-section active">
+                <div class="pitch-header">
+                    <h2>For Remote-First Worplaces</h2>
+                </div>
+                
+                <div class="pain-points">
+                    <h3>Why EaseUp?</h3>
+                    <p>Remote employees often face:</p>
+                    <ul>
+                        <li>Blurred work-life boundaries</li>
+                        <li>Emotional isolation</li>
+                        <li>Long hours of physical inactivity</li>
+                    </ul>
+                    <p><strong>EaseUp offers short, effective tools</strong> to support mental clarity, emotional insight, and physical mobility, designed with privacy in mind, and always on their terms.</p>
+                </div>
+                
+                <div class="value-prop">
+                    <h3><i class="fas fa-shield-alt"></i> 1. Prevent Burnout in Distributed Teams</h3>
+                    <div class="data-point">
+                        <p>Burnout affects 3 in 5 employees and costs U.S. businesses over <span class="stat">$300 billion annually</span>.</p>
+                        <p class="source">👉 <a href="https://www.stress.org/workplace-stress" target="_blank">American Institute of Stress</a></p>
+                    </div>
+                    <div class="how-helps">
+                        <p><strong>How EaseUp Helps:</strong></p>
+                        <p>Remote workers often silently overextend themselves. EaseUp provides a quick reset through breathing, movement, and mood tracking, helping people self-regulate before problems escalate.</p>
+                    </div>
+                </div>
+                
+                <div class="value-prop">
+                    <h3><i class="fas fa-brain"></i> 2. Build Resilience Through Self-Awareness</h3>
+                    <div class="data-point">
+                        <p>Emotional intelligence accounts for <span class="stat">58% of job performance</span>.</p>
+                        <p class="source">👉 <a href="https://www.talentsmarteq.com/articles/emotional-intelligence-skills/" target="_blank">TalentSmart</a></p>
+                    </div>
+                    <div class="how-helps">
+                        <p><strong>How EaseUp Helps:</strong></p>
+                        <p>Mood check-ins and journaling build emotional clarity, essential in distributed teams where async communication and independence are the norm.</p>
+                    </div>
+                </div>
+                
+                <div class="value-prop">
+                    <h3><i class="fas fa-chart-line"></i> 3. Boost Engagement with Flexible, Private Tools</h3>
+                    <div class="data-point">
+                        <p>Companies offering customizable well-being tools see <span class="stat">2.5x higher engagement</span>.</p>
+                        <p class="source">👉 <a href="https://www.mercer.com/insights/health/benefits-strategy/health-on-demand-2022/" target="_blank">Mercer Health on Demand Report (2022)</a></p>
+                    </div>
+                    <div class="how-helps">
+                        <p><strong>How EaseUp Helps:</strong></p>
+                        <p>EaseUp requires no login, no tracking, and no corporate program. It's a personal toolkit that empowers employees without micromanagement, ideal for flexible, async cultures.</p>
+                    </div>
+                </div>
+                
+                <!-- HR Benefits CTA Section -->
+                <div class="hr-benefits-teaser">
+                    <h3>Why HR Teams Should Consider EaseUp</h3>
+                    <p>Addressing the critical engagement gap in corporate wellness programs</p>
+                    <button id="hr-expand-btn" class="hr-expand-button">
+                        Learn More <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+                
+                <div id="hr-benefits-content" class="hr-benefits-content hr-expanded-content">
+                    <div class="hr-stat-header">
+                        <h4>Participation Rates: A Critical Engagement Gap</h4>
+                        <p>Despite the increasing availability of wellness programs—including mobile apps for meditation, mobility exercises, and mental health support—only about <span class="highlight-stat">40% of employees</span> actively engage with them (ElectroIQ, 2024).</p>
+                        <p>This points to a critical disconnect between what HR departments are offering and what employees are actually using.</p>
+                    </div>
+                    
+                    <div class="hr-factors-section">
+                        <h4>Several factors contribute to this gap:</h4>
+                        <ul class="hr-factors-list">
+                            <li><strong>Lack of Awareness:</strong> Employees are often unaware of the full range of wellness tools available to them, especially if these programs are not well-promoted or integrated into onboarding and ongoing internal communication.</li>
+                            <li><strong>Perceived Relevance:</strong> If the wellness app content (e.g., meditation tracks or mobility routines) doesn't feel personalized or directly beneficial to daily work-life stressors, employees may not see the value in using it.</li>
+                            <li><strong>User Experience & Accessibility:</strong> Complex onboarding processes, mandatory logins, or apps that require corporate credentials can be a barrier. On the other hand, mobile-first apps that are easy to use and don't track personal data tend to fare better.</li>
+                            <li><strong>Company Culture:</strong> A wellness app offering is only as effective as the organizational culture surrounding it. If employees feel guilty for taking a break or fear being judged, usage drops—no matter how good the tool is.</li>
+                            <li><strong>Privacy Concerns:</strong> Employees may be hesitant to use corporate wellness apps if they suspect that their activity or mental health data could be monitored by their employer.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="hr-implication">
+                        <h4>How EaseUp Addresses These Challenges:</h4>
+                        <ul class="hr-solution-list">
+                            <li><strong>No-Barrier Access:</strong> EaseUp requires no login, corporate credentials, or complex onboarding—employees can start using it instantly, addressing accessibility barriers.</li>
+                            <li><strong>Privacy by Design:</strong> We don't track individual activity or collect personal data, eliminating privacy concerns that deter participation.</li>
+                            <li><strong>Relevant Micro-Tools:</strong> Short, specific exercises for the most common workplace challenges (tension, stress, focus) that fit seamlessly into existing work routines.</li>
+                            <li><strong>Cultural Integration:</strong> EaseUp's design encourages small, consistent wellness moments rather than disruptive program participation, making it easier to adopt in any workplace culture.</li>
+                            <li><strong>Measurable Without Monitoring:</strong> HR teams can track aggregate engagement without compromising individual privacy, helping measure impact without surveillance.</li>
+                        </ul>
+                        <p class="hr-conclusion">Simply providing wellness apps isn't enough. EaseUp's approach champions low-friction, high-privacy tools that employees actually want to use, helping HR close the critical engagement gap.</p>
+                    </div>
+                </div>
+                
+                <div class="cta-section">
+                    <h3>Empower your remote team with self-care tools that enhance performance while preserving privacy.</h3>
+                    <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#99;&#104;&#114;&#105;&#115;&#116;&#111;&#112;&#104;&#101;&#64;&#101;&#97;&#115;&#101;&#117;&#112;&#97;&#112;&#112;&#46;&#99;&#111;&#109;" class="cta-button">
+                        <i class="fas fa-envelope"></i> Email us to discuss your needs
+                    </a>
+                </div>
+            </div>
+            
+            <!-- In-Person Workplaces Section -->
+            <div id="office-section" class="business-section">
+                <div class="pitch-header">
+                    <h2>For In-Person Workplaces</h2>
+                </div>
+                
+                <div class="pain-points">
+                    <h3>Why EaseUp?</h3>
+                    <p>On-site employees face:</p>
+                    <ul>
+                        <li>Real-time pressure and stress</li>
+                        <li>Sedentary strain from desks and workstations</li>
+                        <li>Limited time for long-form wellness programs</li>
+                    </ul>
+                    <p><strong>EaseUp provides on-demand practices</strong> to reduce tension, improve focus, and create moments of calm, without disrupting their workday.</p>
+                </div>
+                
+                <div class="value-prop">
+                    <h3><i class="fas fa-brain"></i> 1. Reduce Stress and Improve Focus</h3>
+                    <div class="data-point">
+                        <p>Workplace stress costs exceed <span class="stat">$300 billion annually</span> in the U.S.</p>
+                        <p class="source">👉 <a href="https://www.stress.org/workplace-stress" target="_blank">American Institute of Stress</a></p>
+                    </div>
+                    <div class="how-helps">
+                        <p><strong>How EaseUp Helps:</strong></p>
+                        <p>Between meetings, tasks, or breaks, employees can use guided breathing and mood tracking to reset and regain focus, supporting mental agility during busy days.</p>
+                    </div>
+                </div>
+                
+                <div class="value-prop">
+                    <h3><i class="fas fa-running"></i> 2. Prevent Aches and Boost Daily Energy</h3>
+                    <div class="data-point">
+                        <p>Physical inactivity raises the risk of early death by <span class="stat">20–30%</span>, and musculoskeletal pain is a top source of work claims.</p>
+                        <p class="source">👉 <a href="https://www.who.int/news-room/fact-sheets/detail/physical-activity" target="_blank">World Health Organization</a></p>
+                    </div>
+                    <div class="how-helps">
+                        <p><strong>How EaseUp Helps:</strong></p>
+                        <p>EaseUp's short mobility routines reduce stiffness and joint strain, especially in the back, shoulders, and hips. A preventative solution with lasting physical impact.</p>
+                    </div>
+                </div>
+                
+                <div class="value-prop">
+                    <h3><i class="fas fa-users"></i> 3. Increase Retention with Meaningful Well-Being Perks</h3>
+                    <div class="data-point">
+                        <p><span class="stat">80% of employees</span> would stay longer at companies that support mental health.</p>
+                        <p class="source">👉 <a href="https://www.apa.org/pubs/reports/work-well-being/2023" target="_blank">American Psychological Association</a></p>
+                    </div>
+                    <div class="how-helps">
+                        <p><strong>How EaseUp Helps:</strong></p>
+                        <p>EaseUp signals care through action. It's a personal wellness tool that employees can use anytime, no stigma, no pressure, just real support.</p>
+                    </div>
+                </div>
+                
+                <div class="cta-section">
+                    <h3>Give your team the tools to feel better, physically and mentally.</h3>
+                    <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#99;&#104;&#114;&#105;&#115;&#116;&#111;&#112;&#104;&#101;&#64;&#101;&#97;&#115;&#101;&#117;&#112;&#97;&#112;&#112;&#46;&#99;&#111;&#109;" class="cta-button">
+                        <i class="fas fa-envelope"></i> Email us to discuss your needs
+                    
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="public/images/logo/Logo_main.png" alt="EaseUp Logo">
+                    <span>EaseUp</span>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <ul>
+                            <li><a href="index.html#top">Home</a></li>
+                            <li><a href="index.html#about">About</a></li>
+                            <li><a href="index.html#features">Features</a></li>
+                            <li><a href="index.html#benefits">Benefits</a></li>
+                            <li><a href="index.html#faq">FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <ul>
+                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                            <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <ul>
+                            <li><a href="business.html">For Business</a></li>
+                            <li><a href="contact.html" rel="noopener">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><img src="public/images/Social/bluesky.png" alt="Bluesky" style="width: 20px; height: 20px;"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 EaseUp. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <script>
+        // Navigation tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const remoteBtn = document.getElementById('remote-btn');
+            const officeBtn = document.getElementById('office-btn');
+            const remoteSection = document.getElementById('remote-section');
+            const officeSection = document.getElementById('office-section');
+            const hrExpandBtn = document.getElementById('hr-expand-btn');
+            const hrBenefitsContent = document.getElementById('hr-benefits-content');
+            
+            // Show remote section by default
+            remoteBtn.classList.add('active');
+            remoteSection.classList.add('active');
+            
+            // Event listeners for navigation buttons
+            remoteBtn.addEventListener('click', function() {
+                remoteBtn.classList.add('active');
+                officeBtn.classList.remove('active');
+                remoteSection.classList.add('active');
+                officeSection.classList.remove('active');
+            });
+            
+            officeBtn.addEventListener('click', function() {
+                officeBtn.classList.add('active');
+                remoteBtn.classList.remove('active');
+                officeSection.classList.add('active');
+                remoteSection.classList.remove('active');
+            });
+            
+            // HR Benefits expand/collapse functionality
+            hrExpandBtn.addEventListener('click', function() {
+                hrBenefitsContent.classList.toggle('active');
+                hrExpandBtn.classList.toggle('active');
+                
+                // Update button text based on state
+                if (hrExpandBtn.classList.contains('active')) {
+                    hrExpandBtn.innerHTML = 'Show Less <i class="fas fa-chevron-down"></i>';
+                } else {
+                    hrExpandBtn.innerHTML = 'Learn More <i class="fas fa-chevron-down"></i>';
+                    
+                    // Scroll to the HR section when collapsing
+                    const hrSection = document.querySelector('.hr-benefits-cta');
+                    if (hrSection) {
+                        setTimeout(() => {
+                            window.scrollTo({
+                                top: hrSection.offsetTop - 100,
+                                behavior: 'smooth'
+                            });
+                        }, 100);
+                    }
+                }
+            });
+            
+            // Add smooth scrolling for navigation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html> 
