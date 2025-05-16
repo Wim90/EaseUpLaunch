@@ -1,3 +1,18 @@
+# EaseUp Launch
+
+This repository contains the website for EaseUp - a mental health and wellness application.
+
+## Overview
+The EaseUp website provides information about our application, including:
+- Landing pages
+- Privacy policy
+- Terms and conditions
+- Contact information
+- Testimonials
+
+## Development
+The website is built with standard HTML, CSS, and JavaScript.
+
 # EaseUp - Make Self-Care a Habit
 
 ![EaseUp Logo](public/images/logo/Logo_main.png)
